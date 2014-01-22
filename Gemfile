@@ -30,8 +30,18 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_girl'
+end
+
+group :development do
+  gem 'guard'
+end
+
 gem "omniauth"
 gem "omniauth-github"
+
 group :development do
   gem "better_errors" # These two are just for debugging
   gem "binding_of_caller"

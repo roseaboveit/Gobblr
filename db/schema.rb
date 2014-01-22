@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20140122180750) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "uid"
+    t.string   "provider"
   end
 
 end

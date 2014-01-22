@@ -11,24 +11,24 @@
   <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
                 <span class="navbar-brand">Gobblr</span>
             </div>
             <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="#about">About</a>
+                    <li><%= link_to 'About', '/about' %>
                     </li>
-                    <li><a href="#services">Services</a>
+                   <!--  # these links will be dynamically changed once we have sign up and log in functionality -->
+                    <% if @current_user %>
+                    <li><%= link_to 'Log Out', '/logout' %>
                     </li>
-                    <li><a href="#contact">Contact</a>
+                    <li><%= link_to 'Profile', '/profile' %>
                     </li>
-                    <li><a href="#contact">Sign up</a>
+                      <% else %>
+                    <li><%= link_to 'Log In', '/login' %>
                     </li>
+                    <li><%= link_to 'Sign Up', '/signup' %>
+                    </li>
+                    <% end %>
                 </ul>
             </div>
           </nav>
