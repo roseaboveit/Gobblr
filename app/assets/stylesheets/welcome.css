@@ -1,0 +1,6 @@
+.intro_back {
+  background-image: url('turkey.png');
+  background-repeat: no-repeat;
+  background-position: 110% 15%;
+  padding-bottom: 100px;
+}
