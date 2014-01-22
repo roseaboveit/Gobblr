@@ -30,6 +30,13 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem "omniauth"
+gem "omniauth-github"
+group :development do
+  gem "better_errors" # These two are just for debugging
+  gem "binding_of_caller"
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
