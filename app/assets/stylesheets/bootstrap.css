@@ -1341,6 +1341,7 @@ pre code {
   }
   .col-md-2 {
     width: 16.666666666666664%;
+    border: 2px solid black;
   }
   .col-md-1 {
     width: 8.333333333333332%;

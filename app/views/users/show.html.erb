@@ -1,0 +1,18 @@
+<div class='home'>
+<span class='row'>
+<h1>
+  <span class='col-med-5'> <%= @current_user.username.upcase %>'S HUNGRY.</span> 
+  <span class="col-xs-3"> 
+    <%= form_tag(home_path(@current_user.id), method: :get) do %>
+        <%= text_field_tag :search_feeds, params[:search_feeds], class:'form-control' %>
+          <%= submit_tag "Search by name", :name =>'search by name', class: "btn btn-sml" %>
+    <% end %> </span></h1>
+</span>
+
+
+  <div class="side_bar">This is where links to the individual feeds will go</div>
+
+  <div id="posts">This is where the posts will go, sorted by date. (FINGERS CROSSED.)</div>
+
+
+</div>

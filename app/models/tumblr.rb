@@ -1,0 +1,2 @@
+class Tumblr < Post
+end

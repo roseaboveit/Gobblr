@@ -11,7 +11,7 @@
   <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
-                <span class="navbar-brand">Gobblr</span>
+                <span class="navbar-brand"><%= image_tag('hand.png', height: 45) %>Gobblr</span>
             </div>
             <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
                 <ul class="nav navbar-nav">
@@ -19,20 +19,20 @@
                     </li>
                    <!--  # these links will be dynamically changed once we have sign up and log in functionality -->
                     <% if @current_user %>
-                    <li><%= link_to 'Log Out', '/logout' %>
+                    <li><%= link_to 'Log Out', logout_path %>
                     </li>
                     <li><%= link_to 'Profile', '/profile' %>
                     </li>
                       <% else %>
-                    <li><%= link_to 'Log In', '/login' %>
-                    </li>
-                    <li><%= link_to 'Sign Up', '/signup' %>
+                      <li><%= link_to 'Sign Up', '/auth/developer' %>
+                      </li>
+                    <li><%= link_to 'Log In', '/auth/developer' %>
                     </li>
                     <% end %>
                 </ul>
             </div>
           </nav>
-       <br><br><br><br>
+
 
 <%= yield %>
 
