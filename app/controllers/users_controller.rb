@@ -12,4 +12,8 @@ class UsersController < ApplicationController
       render action: 'new'
     end
   end
+
+  def show
+    @posts = Post.search_bar(params[:feeder_params]);
+  end
 end
