@@ -42,6 +42,8 @@ end
 gem "omniauth"
 gem "omniauth-github"
 
+gem "twitter"
+
 group :development do
   gem "better_errors" # These two are just for debugging
   gem "binding_of_caller"
