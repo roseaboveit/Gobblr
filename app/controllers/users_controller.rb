@@ -18,4 +18,9 @@ class UsersController < ApplicationController
     flash[:notice] = "Is this the tumblr weirdo you were looking for?"   
     render :home
   end
+
+  def show
+    require 'will_paginate/array'
+    @posts = Post.search_bar(params[:feeder_params],params[:twitter_params]).paginate(page: params[:page])
+  end
 end
