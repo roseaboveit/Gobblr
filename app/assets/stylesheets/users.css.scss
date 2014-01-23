@@ -3,5 +3,21 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .home {
-  padding-top: 50px;
+  padding-top: 70px;
+}
+
+.home h1 {
+  text-align: left;
+}
+
+.side_bar {
+  margin: 10px;
+  max-width: 100px;
+  height: 100%;
+  float: left;
+  border: 1px solid black;
+}
+
+#posts {
+  display: block-inline;
 }
