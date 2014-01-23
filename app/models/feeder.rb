@@ -1,0 +1,2 @@
+class Feeder < Post
+end
