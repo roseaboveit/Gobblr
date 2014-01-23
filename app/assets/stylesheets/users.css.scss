@@ -14,10 +14,14 @@
   margin: 10px;
   max-width: 100px;
   height: 100%;
-  float: left;
+  position: fixed;
+  left: 0;
   border: 1px solid black;
 }
 
 #posts {
-  display: block-inline;
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 40px;
 }

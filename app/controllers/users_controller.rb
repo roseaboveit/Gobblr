@@ -12,4 +12,9 @@ class UsersController < ApplicationController
       render action: 'new'
     end
   end
+
+  def show
+    require 'will_paginate/array'
+    @posts = Post.search_bar(params[:feeder_params],params[:twitter_params]).paginate(page: params[:page])
+  end
 end
