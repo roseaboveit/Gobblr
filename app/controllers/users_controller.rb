@@ -12,4 +12,10 @@ class UsersController < ApplicationController
       render action: 'new'
     end
   end
+
+  def search
+    @posts = Post.search_tumblr_users(params[:search_tumblr])
+    flash[:notice] = "Is this the tumblr weirdo you were looking for?"   
+    render :home
+  end
 end
