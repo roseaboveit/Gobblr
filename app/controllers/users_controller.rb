@@ -14,6 +14,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @posts = Post.search_bar(params[:feeder_params]);
+    @posts = Post.search_bar(params[:feeder_params],params[:twitter_params]);
   end
 end

@@ -11,10 +11,13 @@
 
 
   <div class="side_bar">This is where links to the individual feeds will go</div>
-
   <div id="posts">
-    <%= @posts.each do |post| %>
-      
+      <% @posts.each do |post| %>
+      <%= post.title %><br>
+      <%= post.author %><br>
+      <%= post.content.html_safe %><br>
+    <br>
+    <% end %>
   </div>
 
 
