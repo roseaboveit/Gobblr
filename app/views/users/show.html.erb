@@ -16,7 +16,8 @@
       <% @posts.each do |post| %>
       <%= post.title %><br>
       by <%= post.author %><br><br>
-      <%= post.content.html_safe %><br>
+      <%= post.summary.html_safe if post.summary %><br>
+      <%= post.content.html_safe if post.content %><br>
     <br>
     <% end %>
   </div>
