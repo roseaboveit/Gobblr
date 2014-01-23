@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
     elsif twitter_search
       Twitter.find_users(twitter_search)
     else
-     Post.all.page params[:page]
+     Post.all
     end
   end
 end
