@@ -5,7 +5,7 @@ class Post < ActiveRecord::Base
     if feed_search
       Feeder.search(feed_search)
     elsif twitter_search
-      Twitter.find_users(twitter_search)
+      Tweet.search(twitter_search)
     else
      Post.all
     end
