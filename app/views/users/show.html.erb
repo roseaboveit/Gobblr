@@ -12,14 +12,52 @@
       <%= submit_tag "You better know their exact name, otherwise don't bother", class: "btn btn-sml" %>
     <% end %> </span></h1>
 </span>
+
 <div class='row'>
   <div class='col-lg-2 sidebar'>
     This is where links to the individual feeds will go
   </div>
   <div class='col-lg-10'>
-    Title: <%= link_to @posts[:title], @posts[:url], target: :blank %><br>
-    Author: <%= @posts[:author] %><br>
-    Post Count: <%= @posts[:post_count]%></br>
-    Description: <%= @posts[:description].html_safe %></br> 
+  <div id="search_results">
+    <%= flash[:notice] %>
+
+    <% if params[:feeder_params] %>
+      <%= form_for @feed do |f| %>
+        <%= f.hidden_field :identifier, value: params[:feeder_params] %>
+         <%= f.hidden_field :type, value: 'Feeder' %>
+        <%= f.submit "Add #{@posts.title} to your feed" %>
+        <% end %><br>
+        <h3><%= @posts.title %> </h3><br>
+        <%= @posts.description %>
+        <!-- Shows something, like the rss feed name and a description --> 
+    <% end %>
+    <% if params[:search_tumblr] %>
+      <%= form_for @feed do |f| %>
+        <%= f.hidden_field :identifier, value: params[:search_tumblr] %>
+        <%= f.hidden_field :type, value: 'Tumblr' %>
+        <%= f.submit "Add #{params[:tumblr_search]} to your feed" %>
+      <% end %>
+      Title: <%= link_to @posts[:title], @posts[:url], target: :blank %><br>
+      Author: <%= @posts[:author] %><br>
+      Post Count: <%= @posts[:post_count]%></br>
+      Description: <%= @posts[:description].html_safe %></br> 
+    <% end %>
+    <br>
+    
+    </div>
   </div>
+
+<!--    <#% @posts.each do |post| %>
+        <#% if post.url %>
+          <#%= link_to post.title, post.url %><br>
+        <#% else %>
+          <#%= post.title %>
+        <#% end %>
+      by <#%= post.author %><br><br>
+      <#%= post.summary.html_safe if post.summary %><br>
+      <#%= post.content.html_safe if post.content %><br>
+    <br>
+    <#% end %>
+  <#% end %> This will be added back in once we have a working feed. --> 
+
 </div>

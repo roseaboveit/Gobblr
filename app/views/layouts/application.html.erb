@@ -19,14 +19,14 @@
                     </li>
                    <!--  # these links will be dynamically changed once we have sign up and log in functionality -->
                     <% if @current_user %>
-                    <li><%= link_to 'Log Out', logout_path %>
+                    <li><%= link_to 'Sign Out', logout_path %>
                     </li>
                     <li><%= link_to 'Profile', '/profile' %>
                     </li>
                       <% else %>
                       <li><%= link_to 'Sign Up', '/auth/developer' %>
                       </li>
-                    <li><%= link_to 'Log In', '/auth/developer' %>
+                    <li><%= link_to 'Sign In', '/auth/developer' %>
                     </li>
                     <% end %>
                 </ul>

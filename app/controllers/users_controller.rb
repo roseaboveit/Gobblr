@@ -13,14 +13,10 @@ class UsersController < ApplicationController
     end
   end
 
-  def search
-    @posts = Post.search_tumblr_users(params[:search_tumblr])
-    flash[:notice] = "Is this the tumblr weirdo you were looking for?"   
-    render :home
+  def show
+    @posts = Post.search_bar(params[:feeder_params],params[:twitter_params], params[:search_tumblr])
+    @feed = Feed.new
   end
 
-  def show
-    require 'will_paginate/array'
-    @posts = Post.search_bar(params[:feeder_params],params[:twitter_params], params[:search_tumblr]) #.paginate(page: params[:page])
-  end
+
 end
