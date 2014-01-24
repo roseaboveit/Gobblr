@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   def show
     @search = Post.search_bar(params[:feeder_params],params[:twitter_params], params[:search_tumblr])
     @feed = Feed.new
+    @posts = @current_user.posts.order('published DESC')
   end
 
 

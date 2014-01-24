@@ -24,14 +24,13 @@
     <% if params[:feeder_params] %>
       <%= form_for @feed do |f| %>
         <%= f.hidden_field :identifier, value: params[:feeder_params] %>
-         <%= f.hidden_field :type, value: 'Feeder' %>
-        <%= f.submit "Add #{@posts.title} to your feed" %>
-        <% end %><br>
-        <h3><%= @posts.title %> </h3><br>
-        <%= @posts.description %>
+        <%= f.hidden_field :type, value: 'Feeder' %>
+        <%= f.submit "Add #{@search.title} to your feed" %>
+      <% end %><br>
+        <h3><%= @search.title %> </h3><br>
+        <%= @search.description %>
         <!-- Shows something, like the rss feed name and a description --> 
-    <% end %>
-    <% if params[:search_tumblr] %>
+    <% elsif params[:search_tumblr] %>
       <%= form_for @feed do |f| %>
         <%= f.hidden_field :identifier, value: params[:search_tumblr] %>
         <%= f.hidden_field :type, value: 'Tumblr' %>
@@ -41,23 +40,20 @@
       Author: <%= @search[:author] %><br>
       Post Count: <%= @search[:post_count]%></br>
       Description: <%= @search[:description].html_safe %></br> 
+    <br>
+    <% else %>
+    <% @posts.each do |post| %>
+        <% if post.url %>
+          <%= link_to post.title, post.url %><br>
+        <% else %>
+          <%= post.title %>
+        <% end %>
+      by <%= post.author %><br><br>
+      <%= post.summary.html_safe if post.summary %><br>
+      <%= post.content.html_safe if post.content %><br>
+    <br>
     <% end %>
-    <br>
-    
-    </div>
-  </div>
-
-<!--    <#% @posts.each do |post| %>
-        <#% if post.url %>
-          <#%= link_to post.title, post.url %><br>
-        <#% else %>
-          <#%= post.title %>
-        <#% end %>
-      by <#%= post.author %><br><br>
-      <#%= post.summary.html_safe if post.summary %><br>
-      <#%= post.content.html_safe if post.content %><br>
-    <br>
-    <#% end %>
-  <#% end %> This will be added back in once we have a working feed. --> 
-
+  <% end %>
+  This will be added back in once we have a working feed. 
+   </div>
 </div>
