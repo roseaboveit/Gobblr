@@ -10,7 +10,7 @@ class Feeder < Feed
       @post.content = post[:summary] if post[:summary]
       if @post.save
       else
-        raise
+        redirect_to root_path, notice: 'This feed did not fully save.'
       end
     end
   end
