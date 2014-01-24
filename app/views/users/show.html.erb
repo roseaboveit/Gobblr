@@ -18,34 +18,32 @@
       <%= form_for @feed do |f| %>
         <%= f.hidden_field :identifier, value: params[:feeder_params] %>
          <%= f.hidden_field :type, value: 'Feeder' %>
-        <%= f.submit "Add #{@posts.title} to your feed" %>
+        <%= f.submit "Add #{@search.title} to your feed" %>
         <% end %><br>
-        <h3><%= @posts.title %> </h3><br>
-        <%= @posts.description %>
+        <h3><%= @search.title %> </h3><br>
+        <%= @search.description %>
         <!-- Shows something, like the rss feed name and a description --> 
-      <% end %>
-      <% if params[:tumblr_search] %>
+      <% elsif params[:tumblr_search] %>
         <%= form_for @feed do |f| %>
         <%= f.hidden_field :identifier, value: params[:tumblr_params] %>
          <%= f.hidden_field :type, value: 'Tumblr' %>
         <%= f.submit "Add #{params[:tumblr_search]} to your feed" %>
         <% end %>
-      <% end %>
     <br>
-    
-  </div>
 
-<!--    <#% @posts.each do |post| %>
-        <#% if post.url %>
-          <#%= link_to post.title, post.url %><br>
-        <#% else %>
-          <#%= post.title %>
-        <#% end %>
-      by <#%= post.author %><br><br>
-      <#%= post.summary.html_safe if post.summary %><br>
-      <#%= post.content.html_safe if post.content %><br>
+    <% else %>
+    <% @posts.each do |post| %>
+        <% if post.url %>
+          <%= link_to post.title, post.url %><br>
+        <% else %>
+          <%= post.title %>
+        <% end %>
+      by <%= post.author %><br><br>
+      <%= post.summary.html_safe if post.summary %><br>
+      <%= post.content.html_safe if post.content %><br>
     <br>
-    <#% end %>
-  <#% end %> This will be added back in once we have a working feed. --> 
-
+    <% end %>
+  <% end %>
+  This will be added back in once we have a working feed. 
+   </div>
 </div>
