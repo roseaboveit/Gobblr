@@ -6,7 +6,7 @@
     <%= form_tag(home_path(@current_user.id), method: :get) do %>
         <%= text_field_tag :feeder_params, params[:feeder_params], class:'form-control', placeholder: 'Add A Feed' %>
           <%= submit_tag "Go", :name =>'search by name', class: "btn btn-sml" %>
-  <span class="col-xs-3"> 
+          <% end %>
     <%= form_tag(home_path(@current_user.id), method: :get) do %>
         <%= text_field_tag :twitter_params, params[:twitter_params], class:'form-control' %>
           <%= submit_tag "Go", :name =>'search by twitter', class: "btn btn-sml" %>
@@ -19,18 +19,16 @@
 
   <div id="search_results">
     
-    <%= flash[:notice] %><br><br><br>
+    <%= flash[:notice] %><br>
 
     <% if params[:twitter_params] %>
-      <% @posts.each do |potential_feed| %>
+      <% @search.each do |potential_feed| %>
       <div>
         <img src="<%= potential_feed.profile_image_url %>" alt="<%= potential_feed.username %>">
         <%= potential_feed.username %>
       </div><br>
       <% end %>
-    <% end %>
-
-    <% if params[:feeder_params] %>
+    <% elsif params[:feeder_params] %>
       <%= form_for @feed do |f| %>
         <%= f.hidden_field :identifier, value: params[:feeder_params] %>
          <%= f.hidden_field :type, value: 'Feeder' %>
