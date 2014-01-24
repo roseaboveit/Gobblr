@@ -8,7 +8,6 @@ class Post < ActiveRecord::Base
     elsif twitter_search
       TwitterFeed.search(twitter_search)
     else
-     Post.all
     end
   end
 
