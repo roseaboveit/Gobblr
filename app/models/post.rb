@@ -11,8 +11,4 @@ class Post < ActiveRecord::Base
     end
   end
 
-  # def self.find_all_posts
-  #   @feeds = @currentFeed.all
-
-  # end
 end

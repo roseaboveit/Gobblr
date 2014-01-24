@@ -1,2 +1,2 @@
-class Tweet < Post
+class Tweet < Feed
 end

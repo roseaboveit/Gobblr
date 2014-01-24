@@ -4,6 +4,7 @@ class FeedsController < ApplicationController
 
   def create
     @feed = Feed.find_or_create_by(identifier: params[:feed][:identifier])
+    @feed.type = params[:feed][:type]
     if @feed.save
       current_user.feeds << @feed unless current_user.feeds.include? @feed
       redirect_to root_path
