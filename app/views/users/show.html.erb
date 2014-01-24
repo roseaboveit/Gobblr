@@ -12,8 +12,7 @@
 
   <div class="side_bar">This is where links to the individual feeds will go</div>
   <div id="search_results">
-    <%= flash[:notice] %>
-    <%= params.inspect %> <br><br><br>
+    <%= flash[:notice] %><br><br><br>
     <% if params[:feeder_params] %>
       <%= form_for @feed do |f| %>
         <%= f.hidden_field :identifier, value: params[:feeder_params] %>
