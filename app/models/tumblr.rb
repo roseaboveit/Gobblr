@@ -1,2 +1,2 @@
-class Tumblr < Post
+class Tumblr < Feed
 end

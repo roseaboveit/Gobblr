@@ -11,16 +11,41 @@
 
 
   <div class="side_bar">This is where links to the individual feeds will go</div>
-  <div id="posts">
-    <%= will_paginate @posts %><br>
-      <% @posts.each do |post| %>
-      <%= post.title %><br>
-      by <%= post.author %><br><br>
-      <%= post.summary.html_safe if post.summary %><br>
-      <%= post.content.html_safe if post.content %><br>
+  <div id="search_results">
+    <%= flash[:notice] %>
+    <%= params.inspect %> <br><br><br>
+    <% if params[:feeder_params] %>
+      <%= form_for @feed do |f| %>
+        <%= f.hidden_field :identifier, value: params[:feeder_params] %>
+         <%= f.hidden_field :type, value: 'Feeder' %>
+        <%= f.submit "Add #{@posts.title} to your feed" %>
+        <% end %><br>
+        <h3><%= @posts.title %> </h3><br>
+        <%= @posts.description %>
+        <!-- Shows something, like the rss feed name and a description --> 
+      <% end %>
+      <% if params[:tumblr_search] %>
+        <%= form_for @feed do |f| %>
+        <%= f.hidden_field :identifier, value: params[:tumblr_params] %>
+         <%= f.hidden_field :type, value: 'Tumblr' %>
+        <%= f.submit "Add #{params[:tumblr_search]} to your feed" %>
+        <% end %>
+      <% end %>
     <br>
-    <% end %>
+    
   </div>
 
+<!--    <#% @posts.each do |post| %>
+        <#% if post.url %>
+          <#%= link_to post.title, post.url %><br>
+        <#% else %>
+          <#%= post.title %>
+        <#% end %>
+      by <#%= post.author %><br><br>
+      <#%= post.summary.html_safe if post.summary %><br>
+      <#%= post.content.html_safe if post.content %><br>
+    <br>
+    <#% end %>
+  <#% end %> This will be added back in once we have a working feed. --> 
 
 </div>
