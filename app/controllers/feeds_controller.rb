@@ -3,8 +3,9 @@ class FeedsController < ApplicationController
   end
 
   def create
-    @feed = current_user.feeds.create(feed_params)
+    @feed = Feed.find_or_create_by(identifier: params[:feed][:identifier])
     if @feed.save
+      current_user.feeds << @feed unless current_user.feeds.include? @feed
       redirect_to root_path
     else
       redirect_to :back, notice: 'This did not save.'
