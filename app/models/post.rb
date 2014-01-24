@@ -8,7 +8,6 @@ class Post < ActiveRecord::Base
     elsif twitter_search
       Twitter.find_users(twitter_search)
     else
-     Post.all
     end
   end
 
