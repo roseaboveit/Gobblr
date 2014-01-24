@@ -17,27 +17,21 @@
 
   <div class="side_bar">This is where links to the individual feeds will go</div>
   <div id="posts">
-   <!--   
-    <#% @posts.each do |tweet| %>
-      <#%= tweet.text %><br>
-    <#% end %>
-  -->
-
-  
 
   <div id="search_results">
-    <% @posts.each do |potential_feed| %>
-      <div>
-      <img src="<%= potential_feed.profile_image_url %>" alt="<%= potential_feed.username %>">
-      <%= potential_feed.username %>
-      </div><br>
-    <% end %>
-
-
-
-
+    
     <%= flash[:notice] %>
     <%= params.inspect %> <br><br><br>
+
+    <% if params[:twitter_params] %>
+      <% @posts.each do |potential_feed| %>
+      <div>
+        <img src="<%= potential_feed.profile_image_url %>" alt="<%= potential_feed.username %>">
+        <%= potential_feed.username %>
+      </div><br>
+      <% end %>
+    <% end %>
+
     <% if params[:feeder_params] %>
       <%= form_for @feed do |f| %>
         <%= f.hidden_field :identifier, value: params[:feeder_params] %>
@@ -57,18 +51,4 @@
       <% end %>
     <br>
   </div>
-
-<!--    <#% @posts.each do |post| %>
-        <#% if post.url %>
-          <#%= link_to post.title, post.url %><br>
-        <#% else %>
-          <#%= post.title %>
-        <#% end %>
-      by <#%= post.author %><br><br>
-      <#%= post.summary.html_safe if post.summary %><br>
-      <#%= post.content.html_safe if post.content %><br>
-    <br>
-    <#% end %>
-  <#% end %> This will be added back in once we have a working feed. --> 
-
 </div>
