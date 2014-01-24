@@ -1,0 +1,2 @@
+class Tweet < Post
+end

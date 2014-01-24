@@ -10,4 +10,9 @@ class Post < ActiveRecord::Base
      Post.all
     end
   end
+
+  # def self.find_all_posts
+  #   @feeds = @currentFeed.all
+
+  # end
 end

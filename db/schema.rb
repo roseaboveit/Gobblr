@@ -11,13 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140123204439) do
+ActiveRecord::Schema.define(version: 20140124010917) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "feed_users", force: true do |t|
+    t.integer  "feed_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "feeds", force: true do |t|
     t.string "name"
+    t.text   "description"
+    t.string "identifier"
   end
 
   create_table "posts", force: true do |t|
@@ -29,8 +38,8 @@ ActiveRecord::Schema.define(version: 20140123204439) do
     t.datetime "published"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "feed"
     t.string   "summary"
+    t.integer  "feed"
   end
 
   create_table "users", force: true do |t|
