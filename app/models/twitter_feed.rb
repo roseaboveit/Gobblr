@@ -1,4 +1,4 @@
-class Tweet < Post
+class TwitterFeed < Feed
   require 'twitter'
   attr_accessor :client, :type
 
@@ -38,5 +38,3 @@ class Tweet < Post
   #   @client.user_timeline(user, options)
   #   end
   # end
-
-end

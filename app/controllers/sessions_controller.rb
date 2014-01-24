@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
       @user = User.find_or_create_from_omniauth(auth_hash)
       if @user
         session[:user_id] = @user.id
-        redirect_to root_path
+        redirect_to home_path(@user.id), notice: "You have been successfully signed in."
       else
         redirect_to root_path, notice: "Failed to save the user"
       end
@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_path
+    redirect_to root_path, notice: "You have been successfully signed out."
   end
 
   private
