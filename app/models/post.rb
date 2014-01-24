@@ -10,7 +10,7 @@ class Post < ActiveRecord::Base
     elsif search_tumblr
       Tumblr.search(search_tumblr)
     else
-     Post.all
+      Post.all
     end
   end
 
