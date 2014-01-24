@@ -17,11 +17,22 @@
 
   <div class="side_bar">This is where links to the individual feeds will go</div>
   <div id="posts">
-      
-    <% @posts.each do |tweet| %>
-      <%= tweet.text %><br>
-    <% end %>
+   <!--   
+    <#% @posts.each do |tweet| %>
+      <#%= tweet.text %><br>
+    <#% end %>
+  -->
+
+  
+
   <div id="search_results">
+    <% @posts.each do |potential_feed| %>
+      <%= potential_feed.username %><br>
+    <% end %>
+
+
+
+
     <%= flash[:notice] %>
     <%= params.inspect %> <br><br><br>
     <% if params[:feeder_params] %>

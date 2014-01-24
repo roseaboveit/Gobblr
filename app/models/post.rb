@@ -6,7 +6,7 @@ class Post < ActiveRecord::Base
     if feed_search
       Feeder.search(feed_search)
     elsif twitter_search
-      Tweet.search(twitter_search)
+      TwitterFeed.search(twitter_search)
     else
      Post.all
     end
