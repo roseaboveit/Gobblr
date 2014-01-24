@@ -27,7 +27,10 @@
 
   <div id="search_results">
     <% @posts.each do |potential_feed| %>
-      <%= potential_feed.username %><br>
+      <div>
+      <img src="<%= potential_feed.profile_image_url %>" alt="<%= potential_feed.username %>">
+      <%= potential_feed.username %>
+      </div><br>
     <% end %>
 
 
