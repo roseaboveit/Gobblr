@@ -9,8 +9,6 @@ class Post < ActiveRecord::Base
       Tumblr.search(search_tumblr)
     elsif twitter_search
       TwitterFeed.search(twitter_search)
-    else
-      Post.all
     end
   end
 
