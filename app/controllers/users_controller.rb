@@ -14,8 +14,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    require 'will_paginate/array'
-    @search = Post.search_bar(params[:feeder_params],params[:twitter_params])
+    @search = Post.search_bar(params[:feeder_params],params[:twitter_params], params[:search_tumblr])
     @feed = Feed.new
     @posts = @current_user.posts.order('published DESC')
     if @search == 0

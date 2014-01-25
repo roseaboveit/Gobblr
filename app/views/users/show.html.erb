@@ -4,19 +4,24 @@
   <span class='col-med-5'> <%= @current_user.username.upcase %> IS HUNGRY.</span> 
   <span class="col-xs-3"> 
     <%= form_tag(home_path(@current_user.id), method: :get) do %>
-        <%= text_field_tag :feeder_params, params[:feeder_params], class:'form-control', placeholder: 'Add A Feed' %>
-          <%= submit_tag "Go", :name =>'search by name', class: "btn btn-sml" %>
-          <% end %>
+      <%= text_field_tag :feeder_params, params[:feeder_params], class:'form-control', placeholder: 'Add A Feed' %>
+      <%= submit_tag "Go", :name =>'search by name', class: "btn btn-sml" %>
+    <% end %>
+    <%= form_tag(home_path(@current_user.id), :method => 'get') do %>
+      <%= text_field_tag :search_tumblr, params[:search_tumblr], placeholder: "Exact tumbler name", class:'form-control' %>
+      <%= submit_tag "Go", class: "btn btn-sml" %>
+    <% end %> 
     <%= form_tag(home_path(@current_user.id), method: :get) do %>
         <%= text_field_tag :twitter_params, params[:twitter_params], class:'form-control', placeholder: 'Twitter Search' %>
           <%= submit_tag "Go", :name =>'search by twitter', class: "btn btn-sml" %>
     <% end %> </span></h1>
 </span>
 
-
-  <div class="side_bar">This is where links to the individual feeds will go</div>
-  <div id="posts">
-
+<div class='row'>
+  <div class='col-lg-2 sidebar'>
+    This is where links to the individual feeds will go
+  </div>
+  <div class='col-lg-10'>
   <div id="search_results">
     <%= flash[:notice] %><br><br>
     <% if params[:twitter_params] %>
@@ -29,20 +34,23 @@
     <% elsif params[:feeder_params] && @search != 0 %>
       <%= form_for @feed do |f| %>
         <%= f.hidden_field :identifier, value: params[:feeder_params] %>
-         <%= f.hidden_field :type, value: 'Feeder' %>
+        <%= f.hidden_field :type, value: 'Feeder' %>
         <%= f.submit "Add #{@search.title} to your feed" %>
-        <% end %><br>
+      <% end %><br>
         <h3><%= @search.title %> </h3><br>
         <%= @search.description %>
         <!-- Shows something, like the rss feed name and a description --> 
-      <% elsif params[:tumblr_search] %>
-        <%= form_for @feed do |f| %>
-        <%= f.hidden_field :identifier, value: params[:tumblr_params] %>
-         <%= f.hidden_field :type, value: 'Tumblr' %>
+    <% elsif params[:search_tumblr] %>
+      <%= form_for @feed do |f| %>
+        <%= f.hidden_field :identifier, value: params[:search_tumblr] %>
+        <%= f.hidden_field :type, value: 'Tumblr' %>
         <%= f.submit "Add #{params[:tumblr_search]} to your feed" %>
-        <% end %>
+      <% end %>
+      Title: <%= link_to @search[:title], @search[:url], target: :blank %><br>
+      Author: <%= @search[:author] %><br>
+      Post Count: <%= @search[:post_count]%></br>
+      Description: <%= @search[:description].html_safe %></br> 
     <br>
-
     <% else %>
     <% @posts.each do |post| %>
         <% if post.url %>
