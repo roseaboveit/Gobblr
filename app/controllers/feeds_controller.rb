@@ -10,7 +10,7 @@ class FeedsController < ApplicationController
           current_user.feeds << @feed
           find_posts(@feed.identifier, @feed.id)
         end
-      redirect_to root_path 
+      redirect_to root_path
     else
       redirect_to :back, notice: 'This did not save.'
     end

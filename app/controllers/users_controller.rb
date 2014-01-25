@@ -18,6 +18,9 @@ class UsersController < ApplicationController
     @search = Post.search_bar(params[:feeder_params],params[:twitter_params])
     @feed = Feed.new
     @posts = @current_user.posts.order('published DESC')
+    if @search == 0
+      flash.now[:notice] = 'Invalid feed URL. Please try again.'
+    end
   end
 
 

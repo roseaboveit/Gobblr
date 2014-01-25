@@ -1,14 +1,14 @@
 <div class='home'>
 <span class='row'>
 <h1>
-  <span class='col-med-5'> <%= @current_user.username.upcase %>'S HUNGRY.</span> 
+  <span class='col-med-5'> <%= @current_user.username.upcase %> IS HUNGRY.</span> 
   <span class="col-xs-3"> 
     <%= form_tag(home_path(@current_user.id), method: :get) do %>
         <%= text_field_tag :feeder_params, params[:feeder_params], class:'form-control', placeholder: 'Add A Feed' %>
           <%= submit_tag "Go", :name =>'search by name', class: "btn btn-sml" %>
           <% end %>
     <%= form_tag(home_path(@current_user.id), method: :get) do %>
-        <%= text_field_tag :twitter_params, params[:twitter_params], class:'form-control' %>
+        <%= text_field_tag :twitter_params, params[:twitter_params], class:'form-control', placeholder: 'Twitter Search' %>
           <%= submit_tag "Go", :name =>'search by twitter', class: "btn btn-sml" %>
     <% end %> </span></h1>
 </span>
@@ -18,9 +18,7 @@
   <div id="posts">
 
   <div id="search_results">
-    
-    <%= flash[:notice] %><br>
-
+    <%= flash[:notice] %><br><br>
     <% if params[:twitter_params] %>
       <% @search.each do |potential_feed| %>
       <div>
@@ -28,7 +26,7 @@
         <%= potential_feed.username %>
       </div><br>
       <% end %>
-    <% elsif params[:feeder_params] %>
+    <% elsif params[:feeder_params] && @search != 0 %>
       <%= form_for @feed do |f| %>
         <%= f.hidden_field :identifier, value: params[:feeder_params] %>
          <%= f.hidden_field :type, value: 'Feeder' %>

@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
 
   def self.search_bar(feed_search=nil,twitter_search=nil)
     if feed_search
-      Feeder.search(feed_search)
+        Feeder.search(feed_search)
     elsif twitter_search
       TwitterFeed.search(twitter_search)
     else

@@ -8,10 +8,6 @@ class Feeder < Feed
       @post = Post.create(author: post[:author], title: post[:title], published: post[:published], url: post[:url], feed_id: id)
       @post.content = post[:content] if post[:content]
       @post.content = post[:summary] if post[:summary]
-      if @post.save
-      else
-        redirect_to root_path, notice: 'This feed did not fully save.'
-      end
     end
   end
 end
