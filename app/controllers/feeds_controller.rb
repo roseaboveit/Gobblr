@@ -25,6 +25,7 @@ class FeedsController < ApplicationController
   def find_posts(feed_identifier, id)
     if @feed.type == 'Feeder'
       Feeder.set_posts(feed_identifier, id)
+
     end
   end
 end
