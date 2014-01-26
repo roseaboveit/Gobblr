@@ -58,7 +58,9 @@
         <% else %>
           <%= post.title %>
         <% end %>
-      by <%= post.author %><br><br>
+        <% if post.author %>
+          by <%= post.author %>
+        <% end %><br><br>
       <%= post.summary.html_safe if post.summary %><br>
       <%= post.content.html_safe if post.content %><br>
     <br>
