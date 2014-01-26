@@ -7,7 +7,7 @@ class Feeder < Feed
     Feedzirra::Feed.fetch_and_parse(feed_url).entries.each do |post|
       @post = Post.create(author: post[:author], title: post[:title], published: post[:published], url: post[:url], feed_id: id)
       @post.content = post[:content] if post[:content]
-      @post.content = post[:summary] if post[:summary]
+      @post.summary = post[:summary] if post[:summary]
     end
   end
 end

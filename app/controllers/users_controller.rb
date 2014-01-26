@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     @feed = Feed.new
     @posts = @current_user.posts.order('published DESC')
     if @search == 0
-      flash.now[:notice] = 'Invalid feed URL. Please try again.'
+      flash.now[:notice] = 'No match found.'
     end
   end
 

@@ -40,12 +40,13 @@
         <h3><%= @search.title %> </h3><br>
         <%= @search.description %>
         <!-- Shows something, like the rss feed name and a description --> 
-    <% elsif params[:search_tumblr] %>
+    <% elsif params[:search_tumblr] && @search != 0 %>
       <%= form_for @feed do |f| %>
         <%= f.hidden_field :identifier, value: params[:search_tumblr] %>
         <%= f.hidden_field :type, value: 'Tumblr' %>
         <%= f.submit "Add #{params[:tumblr_search]} to your feed" %>
       <% end %>
+      <%#= @search[:avatar] %>
       Title: <%= link_to @search[:title], @search[:url], target: :blank %><br>
       Author: <%= @search[:author] %><br>
       Post Count: <%= @search[:post_count]%></br>
