@@ -60,13 +60,19 @@
           <%= post.title %>
         <% end %>
       by <%= post.author %><br><br>
-      <%= post.summary.html_safe if post.summary %><br>
-      <%= post.content.html_safe if post.content %><br>
+      <% if post.content_type == 'photo' %>
+        <img src='<%= post.content %>' >
+      <% elsif post.content_type == 'text' %>
+        <%= post.summary.html_safe if post.summary %><br>
+        <%= post.content.html_safe if post.content %><br>
+      <% end %>
     <br>
+    <hr>
+    <hr>
     <% end %>
   <% end %>
   <% if @posts.count == 0 %>
     Search for users to grow your feed!
-    <% end %>
+  <% end %>
    </div>
 </div>
