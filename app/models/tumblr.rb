@@ -3,7 +3,7 @@ class Tumblr < Feed
   def self.search(tumblr_name)
     walloftext = HTTParty.get("http://api.tumblr.com/v2/blog/#{tumblr_name}.tumblr.com/info?api_key=#{Figaro.env.tumblr_key}")
     posts = HTTParty.get("http://api.tumblr.com/v2/blog/#{tumblr_name}.tumblr.com/posts?api_key=#{Figaro.env.tumblr_key}&notes_info=true")
-    unless walloftext['response'].length == 0
+    if walloftext['response'].length != 0
       @search = { title: walloftext['response']['blog']['title'], 
                   author: walloftext['response']['blog']['name'],
                   url: walloftext['response']['blog']['url'],
