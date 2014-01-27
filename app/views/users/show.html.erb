@@ -59,7 +59,7 @@
     <% else %>
     <!-- This is where the actual posts go! -->
     <% @posts.each do |post| %>
-        <div class="<%= post.feed.type %>".downcase >
+        <div class="<%= post.feed.type.downcase %>" >
         <% if post.url && post.title %>
           <%= link_to post.title, post.url %><br>
         <% else %>
