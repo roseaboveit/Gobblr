@@ -11,14 +11,18 @@
   <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
-                <span class="navbar-brand"><%= image_tag('hand.png', height: 45) %>Gobblr</span>
+                <span class="navbar-brand">
+                  <% if @current_user %>
+                    <%= link_to image_tag('hand.png', height: 45), home_path(@current_user.id) %>
+                  <% else %>
+                    <%= image_tag('hand.png', height: 45) %>
+                  <% end %>
+                  Gobblr</span>
             </div>
             <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
                 <ul class="nav navbar-nav">
                     <% if @current_user %>
-                      <li><%= link_to 'Sign Out', logout_path %>
-                      </li>
-                      <li><%= (link_to image_tag('twitter.png', height: '32'), '/auth/twitter') if @current_user.authorizations.where(provider: 'twitter').count != 1 %>
+                      <li>Add Accounts:<%= (link_to image_tag('twitter.png', height: '32'), '/auth/twitter') if @current_user.authorizations.where(provider: 'twitter').count != 1 %>
                       </li>
                       <li>
                         <%= (link_to image_tag('github.png', height: '32'), '/auth/github') if @current_user.authorizations.where(provider: 'github').count != 1 %>
@@ -26,11 +30,7 @@
                       <li>
                          <%= (link_to image_tag('facebook.png', height: '32'), '/auth/facebook') if @current_user.authorizations.where(provider: 'facebook').count != 1 %>
                       </li>
-                        
-                    <% else %>
-                      <li><%= link_to 'Sign Up', '/auth/developer' %>
-                      </li>
-                      <li><%= link_to 'Sign In', '/auth/developer' %>
+                      <li><%= link_to 'Sign Out', logout_path %>
                       </li>
                     <% end %>
                 </ul>

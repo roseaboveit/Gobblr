@@ -35,7 +35,7 @@
         <%= potential_feed.username %>
       </div><br>
       <% end %>
-    <% elsif params[:feeder_params] && @search != 0 %>
+    <% elsif params[:feeder_params] && @search != 0 && @seach != nil %>
       <%= form_for @feed do |f| %>
         <%= f.hidden_field :identifier, value: params[:feeder_params] %>
         <%= f.hidden_field :type, value: 'Feeder' %>
