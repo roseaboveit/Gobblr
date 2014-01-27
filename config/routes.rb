@@ -2,6 +2,7 @@ Gobblr::Application.routes.draw do
   root 'welcome#index'
 
   post '/auth/:provider/callback' => 'sessions#create'
+  get '/auth/:provider/callback'  => 'sessions#create' 
   get '/users/:id'                => 'users#show', as: :home
   get '/logout'                   => 'sessions#destroy', as: :logout
   post '/users/:id'               => 'feeds#create', as: :feeds

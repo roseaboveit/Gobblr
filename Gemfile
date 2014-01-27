@@ -39,13 +39,15 @@ group :development, :test do
   gem 'guard-rspec', require: false
 end
 
-gem "omniauth"
-gem "omniauth-github"
+gem 'omniauth'
+gem 'omniauth-github'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
 
 gem "twitter"
 
 group :development do
-  gem "better_errors" # These two are just for debugging
+  gem "better_errors"
   gem "binding_of_caller"
 end
 
