@@ -61,7 +61,9 @@
         <% end %>
       by <%= post.author %><br><br>
       <% if post.content_type == 'photo' %>
-        <img src='<%= post.content %>' >
+        <% post.content.split.each do |photo| %>
+          <img src='<%= photo %>' >
+        <% end %>
       <% elsif post.content_type == 'text' %>
         <%= post.summary.html_safe if post.summary %><br>
         <%= post.content.html_safe if post.content %><br>
