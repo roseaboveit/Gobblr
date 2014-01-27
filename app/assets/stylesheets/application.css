@@ -15,3 +15,24 @@
  .navbar-brand img {
   align: left;
  }
+
+.tumblr {
+  width: 700px;
+  background-color: #5786B5;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.twitter_feed {
+  width: 700px;
+  background-color: #53ADD4;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.feeder {
+  width: 700px;
+  background-color: #AB99E0;
+  padding: 20px;
+  border-radius: 15px;
+}

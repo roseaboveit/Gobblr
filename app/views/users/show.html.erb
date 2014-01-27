@@ -44,12 +44,13 @@
         <h3><%= @search.title %> </h3><br>
         <%= @search.description %>
         <!-- Shows something, like the rss feed name and a description --> 
-    <% elsif params[:search_tumblr] %>
+    <% elsif params[:search_tumblr] && @search != 0 %>
       <%= form_for @feed do |f| %>
         <%= f.hidden_field :identifier, value: params[:search_tumblr] %>
         <%= f.hidden_field :type, value: 'Tumblr' %>
         <%= f.submit "Add #{params[:tumblr_search]} to your feed" %>
       <% end %>
+      <img src="<%= @search[:avatar] %>"><br>
       Title: <%= link_to @search[:title], @search[:url], target: :blank %><br>
       Author: <%= @search[:author] %><br>
       Post Count: <%= @search[:post_count]%></br>
@@ -58,22 +59,32 @@
     <% else %>
     <!-- This is where the actual posts go! -->
     <% @posts.each do |post| %>
-        <% if post.url %>
+        <div class="<%= post.feed.type %>".downcase >
+        <% if post.url && post.title %>
           <%= link_to post.title, post.url %><br>
         <% else %>
           <%= post.title %>
         <% end %>
-        <% if post.author %>
-          by <%= post.author %>
-        <% end %><br>
-        <%= post.published.to_time %><br>
-      <%= post.summary.html_safe if post.summary %><br>
-      <%= post.content.html_safe if post.content %><br>
+      by <%= post.author %><br><br>
+      <%= post.published.to_time %><br>
+      <a href="<%= post.url %>">
+      <% if post.content_type == 'photo' %>
+        <% post.content.split.each do |photo| %>
+          <img src='<%= photo %>' >
+        <% end %>
+      <% elsif post.content_type == 'text' || post.feed.type == 'Feeder' %>
+        <%= post.summary.html_safe if post.summary %><br>
+        <%= post.content.html_safe if post.content %><br>
+      <% end %>
+      </a>
+      </div>
+    <br>
+    <br>
     <br>
     <% end %>
   <% end %>
   <% if @posts.count == 0 %>
     Search for users to grow your feed!
-    <% end %>
+  <% end %>
    </div>
 </div>
