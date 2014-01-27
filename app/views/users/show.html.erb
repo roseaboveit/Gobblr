@@ -19,7 +19,11 @@
 
 <div class='row'>
   <div class='col-lg-2 sidebar'>
-    This is where links to the individual feeds will go
+    <% @current_user.authorizations.each do |authorizations| %>
+      <%= authorizations.provider %><br>
+      <%= image_tag(authorizations.avatar) %><br>
+      <%= authorizations.nickname %><br>
+    <% end %>
   </div>
   <div class='col-lg-10'>
   <div id="search_results">
@@ -52,13 +56,17 @@
       Description: <%= @search[:description].html_safe %></br> 
     <br>
     <% else %>
+    <!-- This is where the actual posts go! -->
     <% @posts.each do |post| %>
         <% if post.url %>
           <%= link_to post.title, post.url %><br>
         <% else %>
           <%= post.title %>
         <% end %>
-      by <%= post.author %><br><br>
+        <% if post.author %>
+          by <%= post.author %>
+        <% end %><br>
+        <%= post.published.to_time %><br>
       <%= post.summary.html_safe if post.summary %><br>
       <%= post.content.html_safe if post.content %><br>
     <br>
