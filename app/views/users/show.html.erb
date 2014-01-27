@@ -54,6 +54,8 @@
     <br>
     <% else %>
     <% @posts.each do |post| %>
+        <div class="<%= post.feed.type %>" >
+        Post Type:  <%= post.feed.type%>
         <% if post.url %>
           <%= link_to post.title, post.url %><br>
         <% else %>
@@ -64,10 +66,11 @@
         <% post.content.split.each do |photo| %>
           <img src='<%= photo %>' >
         <% end %>
-      <% elsif post.content_type == 'text' %>
+      <% elsif post.content_type == 'text' || post.feed.type == 'Feeder' %>
         <%= post.summary.html_safe if post.summary %><br>
         <%= post.content.html_safe if post.content %><br>
       <% end %>
+      </div>
     <br>
     <hr>
     <hr>
