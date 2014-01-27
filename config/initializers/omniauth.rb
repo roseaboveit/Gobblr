@@ -6,6 +6,6 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     provider :github, ENV['GITHUB_KEY'], ENV['GITHUB_SECRET']
   else
     provider :facebook, ENV['FACEBOOK_HEROKU_ID'], ENV['FACEBOOK_HEROKU_SECRET_KEY']
-    provider :github, ENV['GITHUB_HEROKU_KEY'], ENV['GITHUB_SECRET_HEROKU_KEY']
+    provider :github, ENV['GITHUB_HEROKU_KEY'], ENV['GITHUB_HEROKU_SECRET_KEY']
   end
 end
