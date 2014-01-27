@@ -16,6 +16,17 @@ ActiveRecord::Schema.define(version: 20140127015457) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "authorizations", force: true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.integer  "user_id"
+    t.string   "email"
+    t.string   "avatar"
+    t.string   "nickname"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "feed_users", force: true do |t|
     t.integer  "feed_id"
     t.integer  "user_id"

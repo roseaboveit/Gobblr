@@ -17,7 +17,6 @@
                 <ul class="nav navbar-nav">
                     <li><%= link_to 'About', '/about' %>
                     </li>
-                   <!--  # these links will be dynamically changed once we have sign up and log in functionality -->
                     <% if @current_user %>
                     <li><%= link_to 'Sign Out', logout_path %>
                     </li>

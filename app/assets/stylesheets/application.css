@@ -18,15 +18,21 @@
 
 .Tumblr {
   width: 700px;
-  background-color: #3F609E;
+  background-color: #5786B5;
+  padding: 20px;
+  border-radius: 15px;
 }
 
 .Twitter_feed {
   width: 700px;
   background-color: #53ADD4;
+  padding: 20px;
+  border-radius: 15px;
 }
 
 .Feeder {
   width: 700px;
-  background-color: #7B6F9E;
+  background-color: #AB99E0;
+  padding: 20px;
+  border-radius: 15px;
 }
