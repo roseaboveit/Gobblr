@@ -1,5 +1,5 @@
 class TwitterFeed < Feed
-  require 'twitter'
+  # require 'twitter'
   attr_accessor :client, :type
 
   def self.search(twitter_search)
