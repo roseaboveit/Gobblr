@@ -46,7 +46,7 @@
         <%= f.hidden_field :type, value: 'Tumblr' %>
         <%= f.submit "Add #{params[:tumblr_search]} to your feed" %>
       <% end %>
-      <%#= @search[:avatar] %>
+      <img src="<%= @search[:avatar] %>"><br>
       Title: <%= link_to @search[:title], @search[:url], target: :blank %><br>
       Author: <%= @search[:author] %><br>
       Post Count: <%= @search[:post_count]%></br>
