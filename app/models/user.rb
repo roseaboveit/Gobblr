@@ -2,19 +2,18 @@ class User < ActiveRecord::Base
   has_many :feed_users
   has_many :feeds, through: :feed_users
   has_many :posts, through: :feeds
+  has_many :authorizations
 
   def self.find_or_create_from_omniauth(auth_hash)
-    User.find_by(uid: auth_hash.uid) || create_from_omniauth(auth_hash)
+    User.find_by(email: auth_hash["info"]["email"], username: auth_hash['info']['name']) || create_from_omniauth(auth_hash)
   end
 
   def self.create_from_omniauth(auth_hash)
-    self.create!(
-      uid:      auth_hash["uid"],
-      provider: auth_hash["provider"],
-      email:    auth_hash["info"]["email"],
-      username: auth_hash["info"]["name"]
+    self.create!(      
+    username: auth_hash["info"]["name"],
+    email:    auth_hash["info"]["email"],
     )
-  rescue ActiveRecord::RecordInvalid
-    nil
+    rescue ActiveRecord::RecordInvalid
+      nil
   end
 end
