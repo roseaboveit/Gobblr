@@ -18,7 +18,7 @@
 
 .tumblr {
   width: 700px;
-  background-color: #5786B5;
+  background-color: #6B99C7;
   padding: 20px;
   border-radius: 15px;
 }
@@ -35,4 +35,8 @@
   background-color: #AB99E0;
   padding: 20px;
   border-radius: 15px;
+}
+
+a {
+  color: #093969 !important;
 }
