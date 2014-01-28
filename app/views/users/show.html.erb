@@ -40,7 +40,7 @@
         <% end %>
       </div><br>
       <% end %>
-    <% elsif params[:feeder_params] && @search != 0 && @seach != nil %>
+    <% elsif params[:feeder_params] && @search != 0 %>
       <%= form_for @feed do |f| %>
         <%= f.hidden_field :identifier, value: params[:feeder_params] %>
         <%= f.hidden_field :type, value: 'Feeder' %>
@@ -69,7 +69,8 @@
           <%= link_to post.title, post.url %><br>
         <% else %>
           <%= post.title %>
-        <% end %>
+        <% end %><br>
+        <%= post.artist if post.artist %><br>
       by <%= post.author %><br><br>
       <%= post.published.to_time %><br>
       <a href="<%= post.url %>">
@@ -79,9 +80,12 @@
         <% end %>
       <% elsif post.content_type != 'photo' %>
         <%= post.summary.html_safe if post.summary %><br>
-        <%= post.content.html_safe if post.content %><br>
+        <%= post.content.html_safe if post.content %><br><br>
       <% end %>
-      <%= post.quote_source.html_safe if post.quote_source %>
+      <% if post.quote_source %>
+       - <%= post.quote_source.html_safe %>
+       <% end %>
+        <%= post.embed.html_safe if post.embed %>
       </a>
       </div>
     <br>
