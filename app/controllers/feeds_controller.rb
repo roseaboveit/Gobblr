@@ -26,7 +26,9 @@ class FeedsController < ApplicationController
     if @feed.type == 'Feeder'
       Feeder.set_posts(feed_identifier, id)
     elsif @feed.type == 'Tumblr'
-      Tumblr.get_all_posts(feed_identifier, id)
+      Tumblr.set_posts(feed_identifier, id)
+    elsif @feed.type == 'TwitterFeed'
+      TwitterFeed.set_posts(feed_identifier, id)
     end
   end
 end

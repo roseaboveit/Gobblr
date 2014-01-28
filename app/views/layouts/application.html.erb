@@ -15,18 +15,23 @@
             </div>
             <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
                 <ul class="nav navbar-nav">
-                    <li><%= link_to 'About', '/about' %>
-                    </li>
                     <% if @current_user %>
-                    <li><%= link_to 'Sign Out', logout_path %>
-                    </li>
-                    <li><%= link_to 'Profile', '/profile' %>
-                    </li>
-                      <% else %>
+                      <li><%= link_to 'Sign Out', logout_path %>
+                      </li>
+                      <li><%= (link_to image_tag('twitter.png', height: '32'), '/auth/twitter') if @current_user.authorizations.where(provider: 'twitter').count != 1 %>
+                      </li>
+                      <li>
+                        <%= (link_to image_tag('github.png', height: '32'), '/auth/github') if @current_user.authorizations.where(provider: 'github').count != 1 %>
+                      </li>
+                      <li>
+                         <%= (link_to image_tag('facebook.png', height: '32'), '/auth/facebook') if @current_user.authorizations.where(provider: 'facebook').count != 1 %>
+                      </li>
+                        
+                    <% else %>
                       <li><%= link_to 'Sign Up', '/auth/developer' %>
                       </li>
-                    <li><%= link_to 'Sign In', '/auth/developer' %>
-                    </li>
+                      <li><%= link_to 'Sign In', '/auth/developer' %>
+                      </li>
                     <% end %>
                 </ul>
             </div>
