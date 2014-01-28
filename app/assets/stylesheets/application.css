@@ -13,7 +13,7 @@
  */
 
  .navbar-brand img {
-  align: left;
+  text-align: left;
  }
 
 .tumblr {
@@ -37,6 +37,14 @@
   border-radius: 15px;
 }
 
-a {
-  color: #093969 !important;
+.feeder a {
+  color: #093969;
+}
+
+.twitterfeed a {
+  color: #093969;
+}
+
+.tumblr a {
+  color: #093969;
 }
