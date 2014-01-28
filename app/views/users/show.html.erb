@@ -32,7 +32,12 @@
       <% @search.each do |potential_feed| %>
       <div>
         <img src="<%= potential_feed.profile_image_url %>" alt="<%= potential_feed.username %>">
-        <%= potential_feed.username %>
+        <%= "@"+ potential_feed.username %>
+        <%= form_for @feed do |f| %>
+          <%= f.hidden_field :identifier, value: params[:twitter_params][potential_feed.username] %>
+          <%= f.hidden_field :type, value: 'TwitterFeed' %>
+          <%= f.submit "Add #{potential_feed.username} to your feed" %>
+        <% end %>
       </div><br>
       <% end %>
     <% elsif params[:feeder_params] && @search != 0 && @seach != nil %>
