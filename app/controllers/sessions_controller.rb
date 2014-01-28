@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       authorization = Authorization.create_from_omniauth(auth_hash)
       user.authorizations << authorization
-      redirect_to home_path(session[:user_id]), notice: "Signed up!"
+      redirect_to home_path(session[:user_id]), notice: "You have been successfully signed in."
     end
   end
 
