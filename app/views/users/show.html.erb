@@ -72,7 +72,8 @@
         <% end %>
         <% if post.aurl %>
           <img src='<%= post.aurl %>'>
-        <% end %>
+        <% end %><br>
+        <%= post.artist if post.artist %><br>
       by <%= post.author %><br><br>
       <%= post.published.to_time %><br>
       <a href="<%= post.url %>">
@@ -80,19 +81,23 @@
         <% post.content.split.each do |photo| %>
           <img src='<%= photo %>' >
         <% end %>
-      <% elsif post.content_type == 'text' || post.feed.type == 'Feeder' %>
+      <% elsif post.content_type != 'photo' %>
         <%= post.summary.html_safe if post.summary %><br>
-        <%= post.content.html_safe if post.content %><br>
+        <%= post.content.html_safe if post.content %><br><br>
       <% end %>
+      <% if post.quote_source %>
+       - <%= post.quote_source.html_safe %>
+       <% end %>
+        <%= post.embed.html_safe if post.embed %>
       </a>
       </div>
     <br>
     <br>
     <br>
     <% end %>
-  <% end %>
-  <% if @posts.count == 0 %>
-    Search for users to grow your feed!
+      <% if @posts.count == 0 %>
+        Search for users to grow your feed!
+      <% end %>
   <% end %>
    </div>
 </div>
