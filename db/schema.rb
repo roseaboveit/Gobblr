@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20140128001419) do
     t.integer  "feed_id"
     t.string   "content_type"
     t.string   "aurl"
+    t.string   "quote_source"
   end
 
   add_index "posts", ["published"], name: "index_posts_on_published", using: :btree

@@ -11,10 +11,4 @@ class Post < ActiveRecord::Base
       TwitterFeed.search(twitter_search)
     end
   end
-
-  # def fix_photo_mess
-  #   photo_string = ""
-  #   photo_hash.map {|photo| photo_string += " " + photo['alt_sizes'][1]['url'] }
-  #   content:['photos'] = photostring
-  # end
 end
