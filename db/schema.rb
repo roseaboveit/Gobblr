@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20140128170926) do
     t.text     "track_name"
     t.text     "album_art"
     t.text     "embed"
+    t.string   "aurl"
   end
 
   add_index "posts", ["published"], name: "index_posts_on_published", using: :btree

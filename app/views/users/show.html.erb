@@ -64,11 +64,14 @@
     <% else %>
     <!-- This is where the actual posts go! -->
     <% @posts.each do |post| %>
-        <div class="<%= post.feed[:type].downcase %>" >
+        <div class="<%= post.feed.type.downcase %>" >
         <% if post.url && post.title %>
           <%= link_to post.title, post.url %><br>
         <% else %>
           <%= post.title %>
+        <% end %>
+        <% if post.aurl %>
+          <img src='<%= post.aurl %>'>
         <% end %><br>
         <%= post.artist if post.artist %><br>
       by <%= post.author %><br><br>
