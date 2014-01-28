@@ -3,22 +3,23 @@
 <h1>
   <span class='col-med-5'> <%= @current_user.username.upcase %> IS HUNGRY.</span> 
   <span class="col-xs-3"> 
-    <%= form_tag(home_path(@current_user.id), method: :get) do %>
-      <%= text_field_tag :feeder_params, params[:feeder_params], class:'form-control', placeholder: 'Add A Feed' %>
-      <%= submit_tag "Go", :name =>'search by name', class: "btn btn-sml" %>
-    <% end %>
-    <%= form_tag(home_path(@current_user.id), :method => 'get') do %>
-      <%= text_field_tag :search_tumblr, params[:search_tumblr], placeholder: "Exact tumbler name", class:'form-control' %>
-      <%= submit_tag "Go", class: "btn btn-sml" %>
-    <% end %> 
-    <%= form_tag(home_path(@current_user.id), method: :get) do %>
-        <%= text_field_tag :twitter_params, params[:twitter_params], class:'form-control', placeholder: 'Twitter Search' %>
-          <%= submit_tag "Go", :name =>'search by twitter', class: "btn btn-sml" %>
-    <% end %> </span></h1>
+  </span></h1>
 </span>
 
 <div class='row'>
-  <div class='col-lg-2 sidebar'>
+  <div class='col-sm-2 sidebar'>
+      <%= form_tag(home_path(@current_user.id), method: :get) do %>
+      <%= text_field_tag :feeder_params, params[:feeder_params], placeholder: 'Add A Feed' %>
+      <%= submit_tag "Go", :name =>'search by name', class: "btn btn-sml" %>
+    <% end %>
+    <%= form_tag(home_path(@current_user.id), :method => 'get') do %>
+      <%= text_field_tag :search_tumblr, params[:search_tumblr], placeholder: "Exact tumblr name" %>
+      <%= submit_tag "Go", class: "btn btn-sml" %>
+    <% end %> 
+    <%= form_tag(home_path(@current_user.id), method: :get) do %>
+        <%= text_field_tag :twitter_params, params[:twitter_params], placeholder: 'Twitter Search' %>
+          <%= submit_tag "Go", :name =>'search by twitter', class: "btn btn-sml" %>
+    <% end %> 
     <% @current_user.authorizations.each do |authorizations| %>
       <%= authorizations.provider %><br>
       <%= image_tag(authorizations.avatar) %><br>

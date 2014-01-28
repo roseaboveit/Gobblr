@@ -2,14 +2,27 @@ class TwitterFeed < Feed
   require 'twitter'
   attr_accessor :client
 
+  def self.view_home
+    authenticate
+    @client.user do |object|
+      if Twitter::Tweet
+        puts "It's a tweet!"
+      end
+    end
+  end
+
   def self.search(twitter_search)
+    authenticate
+    @client.user_search(twitter_search)
+  end
+
+  def self.authenticate
     @client = Twitter::REST::Client.new do |config|
       config.consumer_key    = ENV["TWITTER_CONSUMER_KEY"]
       config.consumer_secret = ENV["TWITTER_CONSUMER_SECRET"]
       config.access_token = ENV["TWITTER_ACCESS_TOKEN"]
       config.access_token_secret = ENV["TWITTER_ACCESS_TOKEN_SECRET"]
     end
-    @client.user_search(twitter_search)
   end
 
   def self.set_posts(twitter_identifier, id)
