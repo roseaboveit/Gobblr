@@ -19,6 +19,7 @@ class UsersController < ApplicationController
     @posts = @current_user.posts.order('published DESC')
     if @search == 0 || @search == 404
       flash.now[:notice] = 'No match found.'
+      @search = 0
     end
   end
 
