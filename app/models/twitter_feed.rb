@@ -1,6 +1,6 @@
 class TwitterFeed < Feed
   require 'twitter'
-  attr_accessor :client, :type
+  attr_accessor :client
 
   def self.search(twitter_search)
     @client = Twitter::REST::Client.new do |config|

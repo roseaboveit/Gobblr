@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140128001419) do
+ActiveRecord::Schema.define(version: 20140128170926) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,16 +44,20 @@ ActiveRecord::Schema.define(version: 20140128001419) do
   create_table "posts", force: true do |t|
     t.string   "author"
     t.text     "content"
-    t.string   "url"
-    t.string   "title"
+    t.text     "url"
+    t.text     "title"
     t.datetime "published"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "summary"
     t.integer  "feed_id"
     t.string   "content_type"
+    t.text     "quote_source"
+    t.text     "artist"
+    t.text     "track_name"
+    t.text     "album_art"
+    t.text     "embed"
     t.string   "aurl"
-    t.string   "quote_source"
   end
 
   add_index "posts", ["published"], name: "index_posts_on_published", using: :btree
