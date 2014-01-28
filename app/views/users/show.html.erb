@@ -70,6 +70,9 @@
         <% else %>
           <%= post.title %>
         <% end %>
+        <% if post.aurl %>
+          <img src='<%= post.aurl %>'>
+        <% end %>
       by <%= post.author %><br><br>
       <%= post.published.to_time %><br>
       <a href="<%= post.url %>">
