@@ -64,7 +64,7 @@
     <% else %>
     <!-- This is where the actual posts go! -->
     <% @posts.each do |post| %>
-        <div class="<%= post.feed.type %>".downcase >
+        <div class="<%= post.feed.type.downcase %>" >
         <% if post.url && post.title %>
           <%= link_to post.title, post.url %><br>
         <% else %>
@@ -77,19 +77,20 @@
         <% post.content.split.each do |photo| %>
           <img src='<%= photo %>' >
         <% end %>
-      <% elsif post.content_type == 'text' || post.feed.type == 'Feeder' %>
+      <% elsif post.content_type != 'photo' %>
         <%= post.summary.html_safe if post.summary %><br>
         <%= post.content.html_safe if post.content %><br>
       <% end %>
+      <%= post.quote_source.html_safe if post.quote_source %>
       </a>
       </div>
     <br>
     <br>
     <br>
     <% end %>
-  <% end %>
-  <% if @posts.count == 0 %>
-    Search for users to grow your feed!
+      <% if @posts.count == 0 %>
+        Search for users to grow your feed!
+      <% end %>
   <% end %>
    </div>
 </div>
