@@ -23,15 +23,24 @@ class Tumblr < Feed
       if post['type'] == 'photo'
         photo_string = ""
         post['photos'].map {|photo| photo_string += " " + photo['alt_sizes'][1]['url'] }
-        @post.summary = post['caption']
         @post.content = photo_string.strip
-      elsif post['type'] == 'text' || post['type'] == 'quote'
-        @post.title = post['title']
+      elsif post['type'] == 'text' || post['type'] == 'quote' || post['type'] == 'chat'
         @post.content = post['body'] if post['body']
         @post.content = post['text'] if post['text']
         @post.quote_source = post['source'] if post['source']
-      elsif post
+      elsif post['type'] == 'link'
+        @post.summary = post['description']
+        @post.content = post['url']
+      elsif post['type'] == 'audio'
+        @post.artist = post['artist']
+        @post.title = post['track_name']
+        @post.album_art = post['album_art']
+        @post.embed = post['embed']
+      elsif post['type'] == 'video'
+        @post.embed = post['player'][2]['embed_code']
       end
+      @post.summary = post['caption'] if post['caption']
+      @post.title = post['title'] if post['title']
       @post.save
     end
   end
