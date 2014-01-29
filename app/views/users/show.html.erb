@@ -18,7 +18,7 @@
 </span>
 
 <div class='row'>
-  <div class='col-lg-2 sidebar'>
+  <div class='col-sm-2 sidebar'>
     <% @current_user.authorizations.each do |authorizations| %>
       <%= authorizations.provider %><br>
       <%= image_tag(authorizations.avatar) %><br>
