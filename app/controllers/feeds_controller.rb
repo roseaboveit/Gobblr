@@ -16,6 +16,18 @@ class FeedsController < ApplicationController
     end
   end
 
+  def add_home_twitter_feed
+    current_user
+    @feed = Feed.find_or_create_by(identifier: "#{@current_user.username}_home_feed")
+    @feed.type = 'TwitterFeed'
+      if @feed.save
+        current_user.feeds << @feed
+      else
+        redirect_to redirect_to root_path, notice: 'Your twitter feed is not accessible at this time'
+      end
+    redirect_to home_path(@current_user.id), notice: "You have been successfully signed in."
+  end
+
   private
 
   def feed_params

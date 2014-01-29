@@ -2,7 +2,7 @@ class Post < ActiveRecord::Base
   belongs_to :feed
   validates :published, presence: true
 
-  def self.search_bar(feed_search=nil,twitter_search=nil, search_tumblr=nil)
+  def self.search_bar(feed_search=nil,twitter_search=nil, search_tumblr=nil,token,secret,username)
     if feed_search
       Feeder.search(feed_search)
     elsif search_tumblr
@@ -10,5 +10,6 @@ class Post < ActiveRecord::Base
     elsif twitter_search
       TwitterFeed.search(twitter_search)
     end
+    TwitterFeed.set_home_tweets(token,secret,username)
   end
 end

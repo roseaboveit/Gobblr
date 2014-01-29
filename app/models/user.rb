@@ -5,13 +5,16 @@ class User < ActiveRecord::Base
   has_many :authorizations
 
   def self.find_or_create_from_omniauth(auth_hash)
-    @user = User.find_by(email: auth_hash["info"]["email"], username: auth_hash['info']['name'])
+    @user = User.find_by(username: auth_hash['info']['name'])
+    @user.update(token: auth_hash["credentials"]["token"])
+    @user.update(secret: auth_hash["credentials"]["secret"])
   end
 
   def self.create_from_omniauth(auth_hash)
     self.create!(      
     username: auth_hash["info"]["name"],
-    email:    auth_hash["info"]["email"]
+    token:    auth_hash["credentials"]["token"],
+    secret:   auth_hash["credentials"]["secret"]
     )
     rescue ActiveRecord::RecordInvalid
       nil
