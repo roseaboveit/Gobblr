@@ -16,5 +16,15 @@ describe Post do
     end
   end
 
-  describe 
+  describe 'methods' do
+
+    describe 'search_bar' do
+      it "searches for the user's home twitter timeline" do
+        user = build(:user)
+        token = user.token
+        secret = user.secret
+        username = user.username
+      end
+    end
+  end
 end
