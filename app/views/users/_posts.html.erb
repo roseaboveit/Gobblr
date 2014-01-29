@@ -1,0 +1,44 @@
+<% @posts.each do |post| %>
+    <div class="<%= post.feed.type.downcase %>" >
+    <% if post.url && post.title %>
+      <%= link_to post.title, post.url %><br>
+    <% else %>
+      <%= post.title %>
+    <% end %>
+    <% if post.aurl %>
+      <img src='<%= post.aurl %>'>
+    <% end %><br>
+    <%= post.artist if post.artist %><br>
+  by <%= post.author %><br><br>
+  <%= post.published.to_time %><br>
+  <a href="<%= post.url %>">
+  <% if post.content_type == 'photo' %>
+    <% post.content.split.each do |photo| %>
+      <img src='<%= photo %>' >
+    <% end %>
+  <% elsif post.content_type != 'photo' %>
+    <%= post.summary.html_safe if post.summary %><br>
+    <%= post.content.html_safe if post.content %><br><br>
+  <% end %>
+  <% if post.quote_source %>
+   - <%= post.quote_source.html_safe %>
+   <% end %>
+    <%= post.embed.html_safe if post.embed %>
+  </a>
+  </div>
+<br>
+  <!-- Tweet Button Logic, Button and Javascript-->
+    <% if post.title %>
+      <% @twitter_text = post.title %>
+    <% else %>
+      <% @twitter_text = "Check out what I found!"%>
+    <% end %>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-url=post.url data-via="" data-related="" data-text=@twitter_text data-dnt="true" data-count="none">Tweet</a>
+    <%= tweet_button{:via => "peterc", :url => "http://news.ycombinator.com", :text => "AWESOME."} %>
+  <!-- End Tweet Button Logic, Button and Javascript -->
+<br>
+<br>
+<% end %>
+<% if @posts.count == 0 %>
+  <h3>Search for users to grow your feed!<h3>
+<% end %>
