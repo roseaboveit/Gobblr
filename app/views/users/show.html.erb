@@ -90,6 +90,15 @@
        <% end %>
         <%= post.embed.html_safe if post.embed %>
       </a>
+      <!-- Tweet Button Logic, Button and Javascript-->
+      <% if post.title %>
+        <% @twitter_text = post.title %>
+      <% else %>
+        <% @twitter_text = "Check out what I found!"%>
+      <% end %>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-url=post.url data-via="" data-related="" data-text=@twitter_text data-dnt="true" data-count="none">Tweet</a>
+      <%= tweet_button{:via => "peterc", :url => "http://news.ycombinator.com", :text => "AWESOME."} %>
+      <!-- End Tweet Button Logic, Button and Javascript -->
       </div>
     <br>
     <br>
