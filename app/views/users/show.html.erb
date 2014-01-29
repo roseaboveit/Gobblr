@@ -29,75 +29,14 @@
   <div id="search_results">
     <%= flash[:notice] %><br><br>
     <% if params[:twitter_params] %>
-      <% @search.each do |potential_feed| %>
-      <div>
-        <img src="<%= potential_feed.profile_image_url %>" alt="<%= potential_feed.username %>">
-        <%= "@"+ potential_feed.username %>
-        <%= form_for @feed do |f| %>
-          <%= f.hidden_field :identifier, value: params[:twitter_params][potential_feed.username] %>
-          <%= f.hidden_field :type, value: 'TwitterFeed' %>
-          <%= f.submit "Add #{potential_feed.username} to your feed" %>
-        <% end %>
-      </div><br>
-      <% end %>
+      <%= render 'twittersearch' %>
     <% elsif params[:feeder_params] && @search != 0 %>
-      <%= form_for @feed do |f| %>
-        <%= f.hidden_field :identifier, value: params[:feeder_params] %>
-        <%= f.hidden_field :type, value: 'Feeder' %>
-        <%= f.submit "Add #{@search.title} to your feed" %>
-      <% end %><br>
-        <h3><%= @search.title %> </h3><br>
-        <%= @search.description %>
-        <!-- Shows something, like the rss feed name and a description --> 
+      <%= render 'rssfeedsearch' %>
     <% elsif params[:search_tumblr] && @search != 0 %>
-      <%= form_for @feed do |f| %>
-        <%= f.hidden_field :identifier, value: params[:search_tumblr] %>
-        <%= f.hidden_field :type, value: 'Tumblr' %>
-        <%= f.submit "Add #{params[:tumblr_search]} to your feed" %>
-      <% end %>
-      <img src="<%= @search[:avatar] %>"><br>
-      Title: <%= link_to @search[:title], @search[:url], target: :blank %><br>
-      Author: <%= @search[:author] %><br>
-      Post Count: <%= @search[:post_count]%></br>
-      Description: <%= @search[:description].html_safe %></br> 
-    <br>
+      <%= render 'tumblrsearch' %>
     <% else %>
     <!-- This is where the actual posts go! -->
-    <% @posts.each do |post| %>
-        <div class="<%= post.feed.type.downcase %>" >
-        <% if post.url && post.title %>
-          <%= link_to post.title, post.url %><br>
-        <% else %>
-          <%= post.title %>
-        <% end %>
-        <% if post.aurl %>
-          <img src='<%= post.aurl %>'>
-        <% end %><br>
-        <%= post.artist if post.artist %><br>
-      by <%= post.author %><br><br>
-      <%= post.published.to_time %><br>
-      <a href="<%= post.url %>">
-      <% if post.content_type == 'photo' %>
-        <% post.content.split.each do |photo| %>
-          <img src='<%= photo %>' >
-        <% end %>
-      <% elsif post.content_type != 'photo' %>
-        <%= post.summary.html_safe if post.summary %><br>
-        <%= post.content.html_safe if post.content %><br><br>
-      <% end %>
-      <% if post.quote_source %>
-       - <%= post.quote_source.html_safe %>
-       <% end %>
-        <%= post.embed.html_safe if post.embed %>
-      </a>
-      </div>
-    <br>
-    <br>
-    <br>
-    <% end %>
-      <% if @posts.count == 0 %>
-        Search for users to grow your feed!
-      <% end %>
+      <%= render 'posts' %>
   <% end %>
    </div>
 </div>
