@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
   belongs_to :feed
-  validates :published, presence: true
+  validates :published, :feed_id, presence: true
 
   def self.search_bar(feed_search=nil,twitter_search=nil, search_tumblr=nil,token,secret,username)
     if TwitterFeed.set_home_tweets(token,secret,username)
