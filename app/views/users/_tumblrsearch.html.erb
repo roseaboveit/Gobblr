@@ -1,12 +1,11 @@
-
-<img src="<%= @search[:avatar] %>"><br>
-Title: <%= link_to @search[:title], @search[:url], target: :blank %><br>
-Author: <%= @search[:author] %><br>
-Post Count: <%= @search[:post_count]%></br>
-Description: <%= @search[:description].html_safe %></br> 
+<img src="<%= @search[:tumblr][:avatar] %>"><br>
+Title: <%= link_to @search[:tumblr][:title], @search[:tumblr][:url], target: :blank %><br>
+Author: <%= @search[:tumblr][:author] %><br>
+Post Count: <%= @search[:tumblr][:post_count]%></br>
+Description: <%= @search[:tumblr][:description].html_safe %></br> 
 <br>
 <%= form_for @feed do |f| %>
-  <%= f.hidden_field :identifier, value: params[:search_tumblr] %>
+  <%= f.hidden_field :identifier, value: params[:search_params] %>
   <%= f.hidden_field :type, value: 'Tumblr' %>
-  <%= f.submit "Add #{params[:tumblr_search]} to your feed" %>
+  <%= f.submit "Add #{params[:search_params]} to your feed" %>
 <% end %>

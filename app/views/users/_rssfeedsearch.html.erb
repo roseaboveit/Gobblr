@@ -1,7 +1,7 @@
-<h3><%= @search.title %> </h3><br>
-<%= @search.description %><br>
+<h3><%= @search[:feed].title %> </h3><br>
+<%= @search[:feed].description %><br>
 <%= form_for @feed do |f| %>
-  <%= f.hidden_field :identifier, value: params[:feeder_params] %>
+  <%= f.hidden_field :identifier, value: params[:search_params] %>
   <%= f.hidden_field :type, value: 'Feeder' %>
-  <%= f.submit "Add #{@search.title} to your feed" %>
+  <%= f.submit "Add #{@search[:feed].title} to your feed" %>
 <% end %>

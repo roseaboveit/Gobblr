@@ -1,20 +1,48 @@
+<div class='home'>
+<span class='row'>
+<h1>
+  <span class='col-med-5'> <%= @current_user.username.upcase %> IS HUNGRY.</span> </h1>
+</span>
+
 <div class='row'>
-  <div class='col-sm-2 sidebar'>
+  <div class='col-sm-3 sidebar'>
+
+    <%= form_tag(home_path(@current_user.id), method: :get) do %>
+      <select name="search_type">
+        <option value='all'>Search All</option>
+        <option value='feed'>Search Feeds</option>
+        <option value='tumblr'>Search Tumblr</option>
+        <option value='twitter'>Search Twitter</option>
+      </select>
+      <%= text_field_tag :search_params, params[:search_params], class:'form-control', placeholder: 'Search' %>
+      <%= submit_tag "Go", :name =>'search by name', class: "btn btn-sml" %>
+    <% end %>
     <% @current_user.authorizations.each do |authorizations| %>
       <%= authorizations.provider %><br>
       <%= image_tag(authorizations.avatar) %><br>
       <%= authorizations.nickname %><br>
     <% end %>
   </div>
-  <div class='col-lg-10'>
+  <div class='col-lg-9'>
   <div id="search_results">
-    <%= flash[:notice] %><br><br>
-    <% if params[:twitter_params] %>
+    <% unless params[:search_type] == 'all' %>
+      <%= flash[:notice] %><br><br>
+    <% end %>
+    <% if params[:search_type] == 'twitter' %>
       <%= render 'twittersearch' %>
-    <% elsif params[:feeder_params] && @search != 0 %>
+    <% elsif params[:search_type] == 'feed' && @search[:feed] != 0 %>
       <%= render 'rssfeedsearch' %>
-    <% elsif params[:search_tumblr] && @search != 0 %>
+    <% elsif params[:search_type] == 'tumblr' && @search[:tumblr] != 0 %>
       <%= render 'tumblrsearch' %>
+    <% elsif params[:search_type] == 'all' %>
+      <h4>Feed Results:</h4><br>
+      <%= flash[:feed_notice] %><br><br>
+      <%= render 'rssfeedsearch' if @search[:feed] != 0 %>
+      <h4>Tumblr Results:</h4><br>
+      <%= flash[:tumblr_notice] %><br><br>
+      <%= render 'tumblrsearch' if @search[:tumblr] != 0 %>
+      <h4>Twitter Results:</h4><br>
+      <%= render 'twittersearch' %>
     <% else %>
     <!-- This is where the actual posts go! -->
       <%= render 'posts' %>

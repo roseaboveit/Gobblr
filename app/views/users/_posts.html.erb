@@ -25,16 +25,22 @@
    <% end %>
     <%= post.embed.html_safe if post.embed %>
   </a>
+    <!-- Tweet Button Logic, Button and Javascript-->
+    <% if post.title %>
+      <% twitter_text = post.title %>
+      <% author = "" %>
+      <% url = post.url %>
+    <% elsif post.feed.type == "TwitterFeed" %>
+      <% twitter_text = "\""+post.content+"\"" %>
+      <% author = post.author %>
+    <% else %>
+      <% twitter_text = "Check out what I found with Gobblr!"%>
+      <% url = post.url %>
+    <% end %>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= url %>" data-via="<%= author %>" data-text="<%= twitter_text %>" data-dnt="true" data-count="none">Tweet</a>
+  <!-- End Tweet Button Logic, Button and Javascript -->
   </div>
 <br>
-  <!-- Tweet Button Logic, Button and Javascript-->
-    <% if post.title %>
-      <% @twitter_text = post.title %>
-    <% else %>
-      <% @twitter_text = "Check out what I found!"%>
-    <% end %>
-    <a href="https://twitter.com/share" class="twitter-share-button" data-url=post.url data-via="" data-related="" data-text=@twitter_text data-dnt="true" data-count="none">Tweet</a>
-  <!-- End Tweet Button Logic, Button and Javascript -->
 <br>
 <br>
 <% end %>
