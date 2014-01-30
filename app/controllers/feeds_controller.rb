@@ -34,7 +34,9 @@ class FeedsController < ApplicationController
     params.require(:feed).permit(:identifier, :user_id=>{})
   end
 
+#constantize
   def find_posts(feed_identifier, id)
+    # @feed.type.constantize.set_posts(feed_identifier, id)
     if @feed.type == 'Feeder'
       Feeder.set_posts(feed_identifier, id)
     elsif @feed.type == 'Tumblr'
