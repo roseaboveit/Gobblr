@@ -35,12 +35,6 @@ class FeedsController < ApplicationController
   end
 
   def find_posts(feed_identifier, id)
-    if @feed.type == 'Feeder'
-      Feeder.set_posts(feed_identifier, id)
-    elsif @feed.type == 'Tumblr'
-      Tumblr.set_posts(feed_identifier, id)
-    elsif @feed.type == 'TwitterFeed'
-      TwitterFeed.set_posts(feed_identifier, id)
-    end
+    @feed.type.constantize.set_posts(feed_identifier, id)
   end
 end
