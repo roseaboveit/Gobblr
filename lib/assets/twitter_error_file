@@ -1,0 +1,17 @@
+2014-01-30T22:20:16.189343+00:00 heroku[router]: at=info method=POST path=/users/10 host=gobblr.herokuapp.com request_id=9706de67-bfbf-4565-a631-2a9ed12fba7c fwd="67.183.111.23" dyno=web.1 connect=4ms service=90ms status=302 bytes=94
+2014-01-30T22:21:21.506794+00:00 heroku[router]: at=info method=GET path=/users/13?utf8=%E2%9C%93&search_type=all&search_params=bookis&search+by+name=Go host=gobblr.herokuapp.com request_id=7b9227b2-237c-48d0-9749-f2be227c0c13 fwd="67.183.111.23" dyno=web.1 connect=4ms service=1148ms status=200 bytes=17216
+2014-01-30T22:22:58.328580+00:00 app[web.1]: Started GET "/users/13" for 67.183.111.23 at 2014-01-30 22:22:58 +0000
+2014-01-30T22:22:58.332427+00:00 app[web.1]: Started GET "/users/13" for 67.183.111.23 at 2014-01-30 22:22:58 +0000
+2014-01-30T22:22:58.354539+00:00 app[web.1]: Processing by UsersController#show as HTML
+2014-01-30T22:22:58.357219+00:00 app[web.1]: Processing by UsersController#show as HTML
+2014-01-30T22:22:58.357219+00:00 app[web.1]:   Parameters: {"id"=>"13"}
+2014-01-30T22:22:58.357422+00:00 app[web.1]:   Parameters: {"id"=>"13"}
+2014-01-30T22:22:58.926057+00:00 app[web.1]: 
+2014-01-30T22:22:58.926057+00:00 app[web.1]: Twitter::Error::TooManyRequests (Rate limit exceeded):
+2014-01-30T22:22:58.926057+00:00 app[web.1]:   app/models/twitter_feed.rb:13:in `set_home_tweets'
+2014-01-30T22:22:58.926283+00:00 app[web.1]:   app/models/post.rb:6:in `search_bar'
+2014-01-30T22:22:58.926283+00:00 app[web.1]:   app/controllers/users_controller.rb:3:in `show'
+2014-01-30T22:22:58.926283+00:00 app[web.1]: 
+2014-01-30T22:22:58.926283+00:00 app[web.1]: 
+2014-01-30T22:22:58.949232+00:00 heroku[router]: at=info method=GET path=/users/13 host=gobblr.herokuapp.com request_id=262d92f1-d006-45e0-8aca-f7020fb0ac9d fwd="67.183.111.23" dyno=web.1 connect=5ms service=627ms status=500 bytes=1266
+2014-01-30T22:22:30.468708+00:00 heroku[router]: at=info method=GET path=/users/13?utf8=%E2%9C%93&search_type=all&search_params=http%3A%2F%2Fwww.kirotv.com%2Flist%2Frss%2Fnews%2Ftop-story%2FmCT7%2F&search+by+name=Go host=gobblr.herokuapp.com request_id=9c882407-592b-4e7f-be31-b08306cf04d6 fwd="67.183.111.23" dyno=web.1 connect=7ms service=450ms status=500 bytes=1266
