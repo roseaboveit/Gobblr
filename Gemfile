@@ -36,7 +36,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'factory_girl'
+  gem 'factory_girl_rails'
   gem 'guard-rspec', require: false
   gem 'simplecov'
 end

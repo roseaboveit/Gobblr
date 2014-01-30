@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_many :feeds, through: :feed_users
   has_many :posts, through: :feeds
   has_many :authorizations
+  validates :username, :secret, :token, presence: true
 
   def self.find_or_create_from_omniauth(auth_hash)
     @user = User.find_by(username: auth_hash['info']['name'])

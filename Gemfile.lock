@@ -55,6 +55,9 @@ GEM
     execjs (2.0.2)
     factory_girl (4.3.0)
       activesupport (>= 3.0.0)
+    factory_girl_rails (4.3.0)
+      factory_girl (~> 4.3.0)
+      railties (>= 3.0.0)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
     feedzirra (0.7.0)
@@ -270,7 +273,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   coffee-rails (~> 4.0.0)
-  factory_girl
+  factory_girl_rails
   feedzirra
   figaro
   guard-rspec

@@ -53,11 +53,11 @@ ActiveRecord::Schema.define(version: 20140128212334) do
     t.integer  "feed_id"
     t.string   "content_type"
     t.text     "quote_source"
+    t.string   "aurl"
     t.text     "artist"
     t.text     "track_name"
     t.text     "album_art"
     t.text     "embed"
-    t.string   "aurl"
   end
 
   add_index "posts", ["published"], name: "index_posts_on_published", using: :btree
