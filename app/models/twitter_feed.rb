@@ -2,9 +2,6 @@ class TwitterFeed < Feed
   require 'twitter'
   attr_accessor :client
 
-  def self.add_home_tweets(username)
-  end
-
   def self.set_home_tweets(token,secret,username)
     @feed = Feed.find_by(identifier: "#{username}_home_feed")
     @twitter_user = Twitter::REST::Client.new do |config|
