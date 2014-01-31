@@ -17,7 +17,6 @@ class TwitterFeed < Feed
       end
     end
   rescue Twitter::Error::TooManyRequests
-    flash[:notice] = 'Sorry, there was a problem with Twitter. Try again later!'
   end
 
   def self.search(twitter_search)
@@ -38,6 +37,5 @@ class TwitterFeed < Feed
       @post = Post.create(author: post.user.screen_name, aurl: post.user.profile_image_url.to_s, published: post['created_at'], feed_id: id, content: post.text, content_type: "text", url: post[:url].to_s)
     end
   rescue Twitter::Error::TooManyRequests
-    flash[:notice] = 'Sorry, there was a problem with Twitter. Try again later!'  
   end
 end
