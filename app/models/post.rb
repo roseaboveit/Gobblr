@@ -6,7 +6,6 @@ class Post < ActiveRecord::Base
     if TwitterFeed.set_home_tweets(token,secret,username)
       TwitterFeed.set_home_tweets(token,secret,username)
     end
-    search_params.chomp!(".tumblr.com")
     case search_type
     when "all"
       #Searches All
