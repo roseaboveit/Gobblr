@@ -4,12 +4,8 @@ class TwitterFeed < Feed
 
   def self.set_home_tweets(token,secret,username)
     @feed = Feed.find_by(identifier: "#{username}_home_feed")
-    @twitter_user = Twitter::REST::Client.new do |config|
-      config.consumer_key    = ENV["TWITTER_CONSUMER_KEY"]
-      config.consumer_secret = ENV["TWITTER_CONSUMER_SECRET"]
-      config.access_token    = token
-      config.access_token_secret = secret
-    end
+    @twitter_user = TwitterFeed.generate_client(token, secret)
+
     @twitter_user.home_timeline.each do |post|
       if @feed.posts.where(url: post[:url].to_s).count == 1
       else
@@ -20,12 +16,7 @@ class TwitterFeed < Feed
   end
 
   def self.search(twitter_search)
-    @client = Twitter::REST::Client.new do |config|
-      config.consumer_key    = ENV["TWITTER_CONSUMER_KEY"]
-      config.consumer_secret = ENV["TWITTER_CONSUMER_SECRET"]
-      config.access_token = ENV["TWITTER_ACCESS_TOKEN"]
-      config.access_token_secret = ENV["TWITTER_ACCESS_TOKEN_SECRET"]
-    end
+    @client = TwitterFeed.generate_client
     @client.user_search(twitter_search)
   rescue Twitter::Error::TooManyRequests
      {}
@@ -39,5 +30,12 @@ class TwitterFeed < Feed
   rescue Twitter::Error::TooManyRequests
   end
 
-
+  def self.generate_client(token= ENV["TWITTER_ACCESS_TOKEN"], secret= ENV["TWITTER_ACCESS_TOKEN_SECRET"])
+    Twitter::REST::Client.new do |config|
+      config.consumer_key    = ENV["TWITTER_CONSUMER_KEY"]
+      config.consumer_secret = ENV["TWITTER_CONSUMER_SECRET"]
+      config.access_token = token
+      config.access_token_secret = secret
+    end
+  end
 end
