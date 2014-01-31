@@ -13,7 +13,7 @@ class TwitterFeed < Feed
     @twitter_user.home_timeline.each do |post|
       if @feed.posts.where(url: post[:url].to_s).count == 1
       else
-        @post = Post.create(author: post.user.screen_name, aurl: post.user.profile_image_url.to_s, published: post['created_at'], content: post.text, content_type: "text", url: post[:url].to_s,  feed_id: @feed.id)
+        @post = Post.create(author: post.user.screen_name, aurl: post.user.profile_image_url.to_s, published: post['created_at'], content: post.text, content_type: "text", url: post[:url].to_s,  feed_id: @feed.id, tweet_id: post.id)
       end
     end
   end
@@ -34,4 +34,6 @@ class TwitterFeed < Feed
       @post = Post.create(author: post.user.screen_name, aurl: post.user.profile_image_url.to_s, published: post['created_at'], feed_id: id, content: post.text, content_type: "text", url: post[:url].to_s)
     end
   end
+
+
 end
