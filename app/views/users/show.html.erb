@@ -33,14 +33,14 @@
     <% end %>
     <% if params[:search_type] == 'twitter' %>
       <%= render 'twittersearch' %>
-    <% elsif params[:search_type] == 'feed' && @search[:feed] != 0 %>
+    <% elsif params[:search_type] == 'feed' && @search[:feed] != 0 && @search[:feed] != 200 %>
       <%= render 'rssfeedsearch' %>
     <% elsif params[:search_type] == 'tumblr' && @search[:tumblr] != 0 %>
       <%= render 'tumblrsearch' %>
     <% elsif params[:search_type] == 'all' %>
       <h4>Feed Results:</h4><br>
       <%= flash[:feed_notice] %><br><br>
-      <%= render 'rssfeedsearch' if @search[:feed] != 0 %>
+      <%= render 'rssfeedsearch' if (@search[:feed] != 0 && @search[:feed] != 200) %>
       <h4>Tumblr Results:</h4><br>
       <%= flash[:tumblr_notice] %><br><br>
       <%= render 'tumblrsearch' if @search[:tumblr] != 0 %>

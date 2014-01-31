@@ -8,4 +8,5 @@ class Feeder < Feed
       @post = Post.create(author: post[:author], title: post[:title], published: post[:published], url: post[:url], content: post[:content], summary: post[:summary], feed_id: id)
     end
   end
+
 end

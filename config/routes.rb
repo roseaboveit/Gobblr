@@ -7,6 +7,8 @@ Gobblr::Application.routes.draw do
   get '/logout'                   => 'sessions#destroy', as: :logout
   post '/users/:id'               => 'feeds#create', as: :feeds
   get 'feeds/twitter_create'      => 'feeds#add_home_twitter_feed', as: :twitter_feed_create
+  get '/test'                     => 'feeds#test'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
