@@ -1,14 +1,14 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/whitneylevis/Ada/Projects/Gobblr/config/environment.rb": [
+      "/Users/scwshoes/Projects/rails_projects/Gobblr/config/environment.rb": [
         null,
         1,
         null,
         null,
         1
       ],
-      "/Users/whitneylevis/Ada/Projects/Gobblr/config/application.rb": [
+      "/Users/scwshoes/Projects/rails_projects/Gobblr/config/application.rb": [
         1,
         null,
         null,
@@ -38,13 +38,13 @@
         null,
         null
       ],
-      "/Users/whitneylevis/Ada/Projects/Gobblr/config/boot.rb": [
+      "/Users/scwshoes/Projects/rails_projects/Gobblr/config/boot.rb": [
         null,
         1,
         null,
         1
       ],
-      "/Users/whitneylevis/Ada/Projects/Gobblr/config/environments/test.rb": [
+      "/Users/scwshoes/Projects/rails_projects/Gobblr/config/environments/test.rb": [
         1,
         null,
         null,
@@ -82,7 +82,7 @@
         1,
         null
       ],
-      "/Users/whitneylevis/Ada/Projects/Gobblr/config/initializers/backtrace_silencers.rb": [
+      "/Users/scwshoes/Projects/rails_projects/Gobblr/config/initializers/backtrace_silencers.rb": [
         null,
         null,
         null,
@@ -91,13 +91,13 @@
         null,
         null
       ],
-      "/Users/whitneylevis/Ada/Projects/Gobblr/config/initializers/filter_parameter_logging.rb": [
+      "/Users/scwshoes/Projects/rails_projects/Gobblr/config/initializers/filter_parameter_logging.rb": [
         null,
         null,
         null,
         1
       ],
-      "/Users/whitneylevis/Ada/Projects/Gobblr/config/initializers/inflections.rb": [
+      "/Users/scwshoes/Projects/rails_projects/Gobblr/config/initializers/inflections.rb": [
         null,
         null,
         null,
@@ -115,14 +115,14 @@
         null,
         null
       ],
-      "/Users/whitneylevis/Ada/Projects/Gobblr/config/initializers/mime_types.rb": [
+      "/Users/scwshoes/Projects/rails_projects/Gobblr/config/initializers/mime_types.rb": [
         null,
         null,
         null,
         null,
         null
       ],
-      "/Users/whitneylevis/Ada/Projects/Gobblr/config/initializers/omniauth.rb": [
+      "/Users/scwshoes/Projects/rails_projects/Gobblr/config/initializers/omniauth.rb": [
         1,
         1,
         1,
@@ -137,13 +137,9 @@
         1,
         1,
         null,
-        null,
-        null,
-        null,
-        null,
         null
       ],
-      "/Users/whitneylevis/Ada/Projects/Gobblr/config/initializers/secret_token.rb": [
+      "/Users/scwshoes/Projects/rails_projects/Gobblr/config/initializers/secret_token.rb": [
         null,
         null,
         null,
@@ -157,12 +153,12 @@
         null,
         1
       ],
-      "/Users/whitneylevis/Ada/Projects/Gobblr/config/initializers/session_store.rb": [
+      "/Users/scwshoes/Projects/rails_projects/Gobblr/config/initializers/session_store.rb": [
         null,
         null,
         1
       ],
-      "/Users/whitneylevis/Ada/Projects/Gobblr/config/initializers/wrap_parameters.rb": [
+      "/Users/scwshoes/Projects/rails_projects/Gobblr/config/initializers/wrap_parameters.rb": [
         null,
         null,
         null,
@@ -178,7 +174,7 @@
         null,
         null
       ],
-      "/Users/whitneylevis/Ada/Projects/Gobblr/spec/factories.rb": [
+      "/Users/scwshoes/Projects/rails_projects/Gobblr/spec/factories.rb": [
         1,
         1,
         1,
@@ -220,7 +216,7 @@
         null,
         null
       ],
-      "/Users/whitneylevis/Ada/Projects/Gobblr/app/models/twitter_feed.rb": [
+      "/Users/scwshoes/Projects/rails_projects/Gobblr/app/models/twitter_feed.rb": [
         1,
         1,
         1,
@@ -241,17 +237,110 @@
         null,
         null,
         null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        null,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/scwshoes/Projects/rails_projects/Gobblr/app/models/feed.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/scwshoes/Projects/rails_projects/Gobblr/app/models/post.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        0,
+        null,
+        null,
+        0,
+        null,
+        null,
+        0,
+        null,
+        null,
+        0,
+        null,
+        null,
+        0,
+        null,
+        null,
+        null
+      ],
+      "/Users/scwshoes/Projects/rails_projects/Gobblr/app/models/feed_user.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/scwshoes/Projects/rails_projects/Gobblr/app/models/tumblr.rb": [
+        1,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null,
         1,
         0,
         0,
         0,
         0,
         0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
         null,
         0,
         null,
-        null,
-        1,
         0,
         0,
         0,
@@ -259,96 +348,7 @@
         null,
         null
       ],
-      "/Users/whitneylevis/Ada/Projects/Gobblr/app/models/feed.rb": [
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null
-      ],
-      "/Users/whitneylevis/Ada/Projects/Gobblr/app/models/post.rb": [
-        1,
-        1,
-        1,
-        null,
-        1,
-        null,
-        null,
-        null,
-        0,
-        null,
-        null,
-        0,
-        null,
-        null,
-        0,
-        null,
-        null,
-        0,
-        null,
-        null,
-        0,
-        null,
-        null,
-        null
-      ],
-      "/Users/whitneylevis/Ada/Projects/Gobblr/app/models/feed_user.rb": [
-        1,
-        1,
-        1,
-        null
-      ],
-      "/Users/whitneylevis/Ada/Projects/Gobblr/app/models/tumblr.rb": [
-        1,
-        null,
-        1,
-        0,
-        0,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        0,
-        null,
-        0,
-        null,
-        null,
-        null,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        null,
-        0,
-        0,
-        0,
-        null,
-        null,
-        null
-      ],
-      "/Users/whitneylevis/Ada/Projects/Gobblr/config/routes.rb": [
+      "/Users/scwshoes/Projects/rails_projects/Gobblr/config/routes.rb": [
         1,
         1,
         null,
@@ -414,19 +414,19 @@
         null,
         null
       ],
-      "/Users/whitneylevis/Ada/Projects/Gobblr/app/helpers/application_helper.rb": [
+      "/Users/scwshoes/Projects/rails_projects/Gobblr/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/whitneylevis/Ada/Projects/Gobblr/app/helpers/sessions_helper.rb": [
+      "/Users/scwshoes/Projects/rails_projects/Gobblr/app/helpers/sessions_helper.rb": [
         1,
         null
       ],
-      "/Users/whitneylevis/Ada/Projects/Gobblr/app/helpers/users_helper.rb": [
+      "/Users/scwshoes/Projects/rails_projects/Gobblr/app/helpers/users_helper.rb": [
         1,
         null
       ],
-      "/Users/whitneylevis/Ada/Projects/Gobblr/app/controllers/application_controller.rb": [
+      "/Users/scwshoes/Projects/rails_projects/Gobblr/app/controllers/application_controller.rb": [
         1,
         1,
         null,
@@ -434,13 +434,15 @@
         1,
         null,
         1,
-        null,
         1,
+        null,
+        0,
+        0,
         null,
         1,
         null
       ],
-      "/Users/whitneylevis/Ada/Projects/Gobblr/spec/controllers/feeds_controller_spec.rb": [
+      "/Users/scwshoes/Projects/rails_projects/Gobblr/spec/controllers/feeds_controller_spec.rb": [
         1,
         null,
         1,
@@ -489,7 +491,6 @@
         null,
         null
       ],
-<<<<<<< HEAD
       "/Users/scwshoes/Projects/rails_projects/Gobblr/spec/controllers/posts_controller_spec.rb": [
         1,
         null,
@@ -500,12 +501,8 @@
       "/Users/scwshoes/Projects/rails_projects/Gobblr/app/controllers/posts_controller.rb": [
         1,
         null
-=======
-      "/Users/whitneylevis/Ada/Projects/Gobblr/spec/controllers/posts_controller_spec.rb": [
-        1
->>>>>>> ccc37bbbb6ad7c0d687e279499b85a5769417383
       ],
-      "/Users/whitneylevis/Ada/Projects/Gobblr/spec/controllers/sessions_controller_spec.rb": [
+      "/Users/scwshoes/Projects/rails_projects/Gobblr/spec/controllers/sessions_controller_spec.rb": [
         1,
         null,
         1,
@@ -565,7 +562,7 @@
         null,
         null
       ],
-      "/Users/whitneylevis/Ada/Projects/Gobblr/app/controllers/sessions_controller.rb": [
+      "/Users/scwshoes/Projects/rails_projects/Gobblr/app/controllers/sessions_controller.rb": [
         1,
         1,
         null,
@@ -595,14 +592,14 @@
         null,
         null
       ],
-      "/Users/whitneylevis/Ada/Projects/Gobblr/spec/controllers/users_controller_spec.rb": [
+      "/Users/scwshoes/Projects/rails_projects/Gobblr/spec/controllers/users_controller_spec.rb": [
         1,
         null,
         null,
         null,
         null
       ],
-      "/Users/whitneylevis/Ada/Projects/Gobblr/spec/controllers/welcome_controller_spec.rb": [
+      "/Users/scwshoes/Projects/rails_projects/Gobblr/spec/controllers/welcome_controller_spec.rb": [
         1,
         null,
         1,
@@ -622,24 +619,23 @@
         null,
         null
       ],
-      "/Users/whitneylevis/Ada/Projects/Gobblr/app/controllers/welcome_controller.rb": [
+      "/Users/scwshoes/Projects/rails_projects/Gobblr/app/controllers/welcome_controller.rb": [
         1,
         1,
         1,
         0,
         null,
         null,
-        null,
         null
       ],
-      "/Users/whitneylevis/Ada/Projects/Gobblr/spec/models/authorization_spec.rb": [
+      "/Users/scwshoes/Projects/rails_projects/Gobblr/spec/models/authorization_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/Users/whitneylevis/Ada/Projects/Gobblr/app/models/authorization.rb": [
+      "/Users/scwshoes/Projects/rails_projects/Gobblr/app/models/authorization.rb": [
         1,
         1,
         null,
@@ -661,7 +657,7 @@
         null,
         null
       ],
-      "/Users/whitneylevis/Ada/Projects/Gobblr/spec/models/feed_spec.rb": [
+      "/Users/scwshoes/Projects/rails_projects/Gobblr/spec/models/feed_spec.rb": [
         1,
         null,
         1,
@@ -707,21 +703,21 @@
         null,
         null
       ],
-      "/Users/whitneylevis/Ada/Projects/Gobblr/spec/models/feed_user_spec.rb": [
+      "/Users/scwshoes/Projects/rails_projects/Gobblr/spec/models/feed_user_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/Users/whitneylevis/Ada/Projects/Gobblr/spec/models/feeder_spec.rb": [
+      "/Users/scwshoes/Projects/rails_projects/Gobblr/spec/models/feeder_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/Users/whitneylevis/Ada/Projects/Gobblr/spec/models/post_spec.rb": [
+      "/Users/scwshoes/Projects/rails_projects/Gobblr/spec/models/post_spec.rb": [
         1,
         null,
         1,
@@ -753,21 +749,21 @@
         null,
         null
       ],
-      "/Users/whitneylevis/Ada/Projects/Gobblr/spec/models/tumblr_spec.rb": [
+      "/Users/scwshoes/Projects/rails_projects/Gobblr/spec/models/tumblr_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/Users/whitneylevis/Ada/Projects/Gobblr/spec/models/twitter_feed_spec.rb": [
+      "/Users/scwshoes/Projects/rails_projects/Gobblr/spec/models/twitter_feed_spec.rb": [
         1,
         null,
         1,
         1,
         null
       ],
-      "/Users/whitneylevis/Ada/Projects/Gobblr/spec/models/user_spec.rb": [
+      "/Users/scwshoes/Projects/rails_projects/Gobblr/spec/models/user_spec.rb": [
         1,
         null,
         1,
@@ -819,7 +815,7 @@
         null,
         null
       ],
-      "/Users/whitneylevis/Ada/Projects/Gobblr/app/models/user.rb": [
+      "/Users/scwshoes/Projects/rails_projects/Gobblr/app/models/user.rb": [
         1,
         1,
         1,
@@ -845,17 +841,6 @@
         null
       ]
     },
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "timestamp": 1391123771
-=======
-    "timestamp": 1391115266
->>>>>>> ccc37bbbb6ad7c0d687e279499b85a5769417383
-=======
-    "timestamp": 1391121318
-=======
-    "timestamp": 1391115266
->>>>>>> 29fc711bdb7965d3de382a78d6d6a32137a7f207
->>>>>>> master
+    "timestamp": 1391128714
   }
 }
