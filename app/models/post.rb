@@ -21,4 +21,9 @@ class Post < ActiveRecord::Base
       { twitter: TwitterFeed.search(search_params) }
     end
   end
+
+  def fave_tweet(post)
+    @client.status(post.tweet_id)
+  end
+
 end
