@@ -33,11 +33,15 @@
     <% elsif post.feed.type == "TwitterFeed" %>
       <% twitter_text = "\""+post.content+"\"" %>
       <% author = post.author %>
+      <% tweet_id = post.post_id %>
+      <p><a href="https://twitter.com/intent/tweet?in_reply_to=<%= tweet_id %>" class="twitter-reply-button">Reply</a></p>
+    
     <% else %>
       <% twitter_text = "Check out what I found with Gobblr!"%>
       <% url = post.url %>
     <% end %>
     <a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= url %>" data-via="<%= author %>" data-text="<%= twitter_text %>" data-dnt="true" data-count="none">Tweet</a>
+    
   <!-- End Tweet Button Logic, Button and Javascript -->
   </div>
 <br>
