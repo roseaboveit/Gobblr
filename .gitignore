@@ -14,8 +14,6 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-/coverage/*.json
-/coverage/index.html
 
 # Ignore application configuration
 /config/application.yml
