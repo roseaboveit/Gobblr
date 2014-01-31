@@ -5,8 +5,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def current_user
-    #session[:user_id] = nil
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  rescue ActiveRecord::RecordNotFound
+    session[:user_id] = nil
+    redirect_to root_path
   end
   helper_method :current_user
 end
