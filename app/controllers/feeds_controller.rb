@@ -15,11 +15,7 @@ class FeedsController < ApplicationController
       redirect_to :back, notice: 'This did not save.'
     end
   end
-
-  def test
-    Feed.update_feeds(@current_user.username)
-  end
-
+  
   def add_home_twitter_feed
     current_user
     @feed = Feed.find_or_create_by(identifier: "#{@current_user.username}_home_feed")
