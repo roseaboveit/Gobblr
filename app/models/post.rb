@@ -22,8 +22,8 @@ class Post < ActiveRecord::Base
     end
   end
 
-  def fave_tweet(post)
-    @client.status(post.tweet_id)
+  def fave_tweet(post, token, secret)
+    TwitterFeed.generate_client(token, secret).favorite!TwitterFeed.generate_client.status(post.tweet_id)
   end
 
 end
