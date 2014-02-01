@@ -16,11 +16,13 @@ class TwitterFeed < Feed
   end
 
   def self.search(twitter_search)
-    @client = TwitterFeed.generate_client
+    @client = TwitterFeed.generate_client    
     @client.user_search(twitter_search)
   rescue Twitter::Error::TooManyRequests
      {}
   end
+
+private
 
   def self.set_posts(twitter_identifier, id)
     bunch_of_posts = @client.user_timeline(twitter_identifier)

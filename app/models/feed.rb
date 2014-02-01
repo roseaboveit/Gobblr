@@ -4,4 +4,5 @@ class Feed < ActiveRecord::Base
   has_many :posts
   validates :type, presence: true
   validates :identifier, presence: true, uniqueness: true
+
 end
