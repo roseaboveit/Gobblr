@@ -25,7 +25,7 @@
    <% end %>
     <%= post.embed.html_safe if post.embed %>
   </a>
-    <% if post.feed.type = "TwitterFeed" %>
+    <% if post.feed.type == "TwitterFeed" %>
       <%= button_to "Favorite", favorite_path(post.id) %>
     <% end %>
     <!-- Tweet Button Logic, Button and Javascript-->
