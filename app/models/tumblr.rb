@@ -19,7 +19,7 @@ class Tumblr < Feed
   def self.set_posts(feed_url, id)
     post_hash = HTTParty.get("http://api.tumblr.com/v2/blog/#{feed_url}.tumblr.com/posts?api_key=#{Figaro.env.tumblr_key}&notes_info=true")['response']['posts']
     post_hash.each do |post|
-      if Feed.posts.where(url: post[:url]).count == 1
+      if Feed.find(id).posts.where(url: post[:url]).count == 1
       else
         @post = Post.create(author: post['blog_name'], published: post['date'], url: post['post_url'], feed_id: id, content_type: post['type'], aurl: "http://api.tumblr.com/v2/blog/#{post['blog_name']}.tumblr.com/avatar/96")
         if post['type'] == 'photo'
