@@ -22,6 +22,8 @@ class TwitterFeed < Feed
      {}
   end
 
+private
+
   def self.set_posts(twitter_identifier, id)
     bunch_of_posts = @client.user_timeline(twitter_identifier)
     bunch_of_posts.each do |post|
