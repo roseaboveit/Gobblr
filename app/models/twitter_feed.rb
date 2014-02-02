@@ -2,6 +2,7 @@ class TwitterFeed < Feed
   require 'twitter'
   attr_accessor :client
 
+<<<<<<< HEAD
   def self.set_home_tweets(token, secret, username)
     @feed = Feed.find_by(identifier: "#{username}_home_feed")
     if (Time.now - @feed.updated_at) > 300
@@ -31,13 +32,21 @@ class TwitterFeed < Feed
     {}
   end
 
-private
+  private
 
   def self.set_posts(twitter_identifier, id)
-    @client = TwitterFeed.generate_client 
+    @client = TwitterFeed.generate_client
     bunch_of_posts = @client.user_timeline(twitter_identifier)
+
     bunch_of_posts.each do |post|
-      @post = Post.create(author: post.user.screen_name, aurl: post.user.profile_image_url.to_s, published: post['created_at'], feed_id: id, content: post.text, content_type: "text", url: post[:url].to_s, tweet_id: post.id)
+      Post.create(author:       post.user.screen_name,
+                  aurl:         post.user.profile_image_url.to_s,
+                  published:    post['created_at'],
+                  feed_id:      id,
+                  content:      post.text,
+                  content_type: "text",
+                  url:          post[:url].to_s,
+                  tweet_id:     post.id)
     end
   rescue Twitter::Error::TooManyRequests
   end
