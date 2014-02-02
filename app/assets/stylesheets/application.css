@@ -20,7 +20,7 @@
   width: 700px;
   background-color: #6B99C7;
   padding: 50px 20px 20px 20px;
-  background-image: url('tumblrlogo.png');
+  background-image: url(asset_path('tumblrlogo.png'));
   background-repeat: no-repeat;
   background-position: 0 -20px;
 }
@@ -30,7 +30,7 @@
   background-color: #53ADD4;
   padding: 50px 20px;
   margin-left: 130px;
-  background-image: url('twitterlogo.png');
+  background-image: url(asset_path('twitterlogo.png'));
   background-repeat: no-repeat;
 }
 
@@ -42,7 +42,7 @@
   width: 700px;
   background-color: #AB99E0;
   padding: 50px 20px;
-  background-image: url('rss.png');
+  background-image: url(asset_path('rss.png'));
   background-repeat: no-repeat;
   background-position: -22px -55px;
 }
