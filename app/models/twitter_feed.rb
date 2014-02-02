@@ -28,7 +28,7 @@ class TwitterFeed < Feed
      {}
   end
 
-private
+  private
 
   def self.set_posts(twitter_identifier, id)
     @client = TwitterFeed.generate_client
