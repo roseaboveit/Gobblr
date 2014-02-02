@@ -8,25 +8,25 @@ describe SessionsController do
 
         # I commented these out because apparently we don't need em? And they don't work. So, maybe if we have time.
 
-        # it "redirects to home page" do
-        #   get :create, provider: :twitter
-        #   expect(response).to be_redirect
-        # end
+        it "redirects to home page" do
+          get :create, provider: :twitter
+          expect(response).to be_redirect
+        end
 
-        # it "creates a user" do
-        #   expect { get :create, provider: :twitter }.to change(User, :count).by(1)
-        # end
+        it "creates a user" do
+          expect { get :create, provider: :twitter }.to change(User, :count).by(1)
+        end
 
 
-        # it "assigns the @current_user var" do
-        #   get :create, provider: :twitter
-        #   expect(assigns(:current_user)).to be_an_instance_of User
-        # end
+        it "assigns the @current_user var" do
+          get :create, provider: :twitter
+          expect(assigns(:current_user)).to be_an_instance_of User
+        end
 
-        # it "assigns the session[:user_id]" do
-        #   get :create, provider: :twitter
-        #   expect(session[:user_id]).to eq assigns(:current_user).id
-        # end
+        it "assigns the session[:user_id]" do
+          get :create, provider: :twitter
+          expect(session[:user_id]).to eq assigns(:current_user).id
+        end
 
       end
 

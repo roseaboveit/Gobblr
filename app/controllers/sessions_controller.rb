@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
     @authorization = Authorization.find_by(uid: auth_hash["uid"])
     if @authorization
       session[:user_id] = @authorization.user_id
+      Feed.update
       redirect_to home_path(session[:user_id]), notice: "You have been successfully signed in."
     elsif current_user
       authorization = Authorization.create_from_omniauth(auth_hash)
