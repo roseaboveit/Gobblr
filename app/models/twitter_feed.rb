@@ -2,7 +2,6 @@ class TwitterFeed < Feed
   require 'twitter'
   attr_accessor :client
 
-<<<<<<< HEAD
   def self.set_home_tweets(token, secret, username)
     @feed = Feed.find_by(identifier: "#{username}_home_feed")
     if (Time.now - @feed.updated_at) > 300
