@@ -1,7 +1,7 @@
 class FeedRequest
   attr_accessor :results, :successful?, :provider
 
-  def self.search_bar(search_params=nil, search_type, token,secret,username)
+  def self.search_bar(search_params = nil, search_type, token, secret, username)
     # if TwitterFeed.set_home_tweets(token,secret,username)
     #   TwitterFeed.set_home_tweets(token,secret,username)
     # end
@@ -14,7 +14,7 @@ class FeedRequest
       { feed: Feeder.search(search_params) }
     when "tumblr"
       #Searches by Tumblr
-      feed = Tumblr.search(search_params) }
+      feed = Tumblr.search(search_params)
       self.new(results: feed[:big_ugly_hash][:authors], successful: feed[:posts] != 0, provider: :tumblr )
 
     when "twitter"
