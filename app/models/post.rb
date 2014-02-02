@@ -23,14 +23,13 @@ class Post < ActiveRecord::Base
   end
 
   def fave_tweet(post, token, secret)
-    individual = TwitterFeed.generate_client(token, secret)
-    tweet = TwitterFeed.generate_client.status(post.tweet_id)
-    if !individual.status(post.tweet_id).favorited
-      individual.favorite!tweet
-    else
-      individual.unfavorite(tweet)
-    end
-    rescue Twitter::Error::TooManyRequests
+    TwitterFeed.generate_client(token, secret).favorite!TwitterFeed.generate_client.status(post.tweet_id)
+  rescue Twitter::Error::TooManyRequests
+  end
+
+  def unfave_tweet(post, token, secret)
+    TwitterFeed.generate_client(token, secret).unfavorite(TwitterFeed.generate_client.status(post.tweet_id))
+  rescue Twitter::Error::TooManyRequests
   end
 
   def retweet(post, token, secret)
