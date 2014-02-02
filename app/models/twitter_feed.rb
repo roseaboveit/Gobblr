@@ -4,7 +4,7 @@ class TwitterFeed < Feed
 
   def self.set_home_tweets(token, secret, username)
     @feed = Feed.find_by(identifier: "#{username}_home_feed")
-    if (Time.now - @feed.updated_at) > 300
+    if @feed.updated_at != nil && (Time.now - @feed.updated_at) > 300
       @twitter_user = TwitterFeed.generate_client(token, secret)
 
       @twitter_user.home_timeline.each do |post|
