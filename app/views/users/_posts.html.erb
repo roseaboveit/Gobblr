@@ -1,3 +1,6 @@
+<div class = 'apple_pagination'>
+<%= will_paginate @posts %>
+</div>
 <% @posts.each do |post| %>
     <div class="<%= post.feed.type.downcase %>" >
     <% if post.url && post.title %>
