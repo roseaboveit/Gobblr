@@ -4,24 +4,28 @@ class TwitterFeed < Feed
 
   def self.set_home_tweets(token, secret, username)
     @feed = Feed.find_by(identifier: "#{username}_home_feed")
-    if @feed.posts.count == 0 || (Time.now - @feed.updated_at) > 300
-      @twitter_user = TwitterFeed.generate_client(token, secret)
-
-      @twitter_user.home_timeline.each do |post|
-        if @feed.posts.where(url: post[:url].to_s).count == 1
-        else
-          @post = Post.create(author: post.user.screen_name,
-                              aurl: post.user.profile_image_url.to_s,
-                              published: post['created_at'],
-                              content: post.text,
-                              content_type: 'text',
-                              url: post[:url].to_s, 
-                              feed_id: @feed.id,
-                              tweet_id: post.id)
-        end
+    @twitter_user = TwitterFeed.generate_client(token, secret)
+    @twitter_user.home_timeline.each do |post|
+      if @feed.posts.where(url: post[:url].to_s).count == 1
+      else
+        @post = Post.create(author: post.user.screen_name,
+                            aurl: post.user.profile_image_url.to_s,
+                            published: post['created_at'],
+                            content: post.text,
+                            content_type: 'text',
+                            url: post[:url].to_s, 
+                            feed_id: @feed.id,
+                            tweet_id: post.id)
       end
     end
   rescue Twitter::Error::TooManyRequests
+  end
+
+  def self.update_home_tweets(token, secret, username)
+    @feed = Feed.find_by(identifier: "#{username}_home_feed")
+    if @feed.updated_at == nil || (Time.now - @feed.updated_at) > 300
+      set_home_tweets(token, secret, username)
+    end
   end
 
   def self.search(twitter_search)
