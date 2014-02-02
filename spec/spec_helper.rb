@@ -26,7 +26,7 @@ RSpec.configure do |config|
 
     # The mock_auth configuration allows you to set per-provider (or default) authentication  hashes to return during testing.
 
-    OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({credentials: {token: '123456', secret: '123456'}, info: {email: "a@b.com", nickname: "Bookis"}})
+    OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({credentials: {token: '123456', secret: '123456'}, info: {email: "a@b.com", name: "Bookis"}})
   end
   config.include FactoryGirl::Syntax::Methods
   

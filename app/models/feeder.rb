@@ -5,7 +5,11 @@ class Feeder < Feed
 
   def self.set_posts(feed_url, id)
     Feedzirra::Feed.fetch_and_parse(feed_url).entries.each do |post|
+      if Feed.find(id).posts.where(url: post[:url]).count == 1
+      else
       @post = Post.create(author: post[:author], title: post[:title], published: post[:published], url: post[:url], content: post[:content], summary: post[:summary], feed_id: id)
+      end
     end
   end
+
 end
