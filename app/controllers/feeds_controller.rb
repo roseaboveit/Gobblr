@@ -22,6 +22,7 @@ class FeedsController < ApplicationController
     @feed.type = 'TwitterFeed'
     if @feed.save
       current_user.feeds << @feed
+      TwitterFeed.set_home_tweets(@current_user.token, @current_user.secret, @current_user.username)
     else
       redirect_to root_path, notice: 'Your twitter feed is not accessible at this time'
     end
