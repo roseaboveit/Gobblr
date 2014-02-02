@@ -19,22 +19,32 @@
 .tumblr {
   width: 700px;
   background-color: #6B99C7;
-  padding: 20px;
-  border-radius: 15px;
+  padding: 50px 20px 20px 20px;
+  background-image: url('tumblrlogo.png');
+  background-repeat: no-repeat;
+  background-position: 0 -20px;
 }
 
 .twitterfeed {
-  width: 700px;
+  width: 300px;
   background-color: #53ADD4;
-  padding: 20px;
-  border-radius: 15px;
+  padding: 50px 20px;
+  margin-left: 130px;
+  background-image: url('twitterlogo.png');
+  background-repeat: no-repeat;
 }
 
+/*.twitterfeed img {
+
+}
+*/
 .feeder {
   width: 700px;
   background-color: #AB99E0;
-  padding: 20px;
-  border-radius: 15px;
+  padding: 50px 20px;
+  background-image: url('rss.png');
+  background-repeat: no-repeat;
+  background-position: -22px -55px;
 }
 
 .feeder a {
@@ -49,30 +59,32 @@
   color: #093969;
 }
 
-.apple_pagination {
-  background: #f1f1f1;
-  border: 1px solid #e5e5e5;
-  text-align: center;
-  padding: 1em;
-  cursor: default; }
-  .apple_pagination a, .apple_pagination span {
-    padding: 0.2em 0.3em; }
-  .apple_pagination .disabled {
-    color: #aaaaaa; }
-  .apple_pagination .current {
-    font-style: normal;
-    font-weight: bold;
-    background-color: #bebebe;
-    display: inline-block;
-    width: 1.4em;
-    height: 1.4em;
-    line-height: 1.5;
-    -moz-border-radius: 1em;
-    -webkit-border-radius: 1em;
-    border-radius: 1em;
-    text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px; }
-  .apple_pagination a {
-    text-decoration: none;
-    color: black; }
-    .apple_pagination a:hover, .apple_pagination a:focus {
+.apple_pagination .pagination {
+  padding-left: 100px;
+   }
+
+.apple_pagination a, .apple_pagination span {
+  border-radius: 15px;
+}
+.apple_pagination .disabled {
+  color: #aaaaaa; }
+
+.apple_pagination .current {
+  font-style: normal;
+  font-weight: bold;
+  background-color: #bebebe;
+  display: inline-block;
+  width: 1.4em;
+  height: 1.4em;
+  line-height: 1.5;
+  -moz-border-radius: 1em;
+  -webkit-border-radius: 1em;
+  border-radius: 1em;
+  text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px; }
+
+.apple_pagination a {
+  text-decoration: none;
+  color: black; }
+
+  .apple_pagination a:hover, .apple_pagination a:focus {
       text-decoration: underline; }

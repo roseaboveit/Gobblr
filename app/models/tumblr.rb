@@ -1,10 +1,9 @@
 class Tumblr < Feed
-
   def self.search(tumblr_name)
-    tumblr_name.chomp!(".tumblr.com")
+    tumblr_name.chomp!('.tumblr.com')
     walloftext = HTTParty.get("http://api.tumblr.com/v2/blog/#{tumblr_name}.tumblr.com/info?api_key=#{Figaro.env.tumblr_key}")
     if walloftext['response'].length != 0
-      { title:       walloftext['response']['blog']['title'], 
+      { title:       walloftext['response']['blog']['title'],
         author:      walloftext['response']['blog']['name'],
         url:         walloftext['response']['blog']['url'],
         post_count:  walloftext['response']['blog']['posts'],
