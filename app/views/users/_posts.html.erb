@@ -25,8 +25,13 @@
    <% end %>
     <%= post.embed.html_safe if post.embed %>
   </a>
-    <% if post.feed.type = "TwitterFeed" %>
+    <% if post.feed.type == "TwitterFeed" && !post.its_a_fave(current_user) %>
       <%= button_to "Favorite", favorite_path(post.id) %>
+    <% elsif post.feed.type == "TwitterFeed" && post.its_a_fave(current_user) %>
+      <%= button_to "Unfavorite", favorite_path(post.id) %>
+    <% end %><br>
+    <% if post.feed.type == "TwitterFeed" && !post.is_it_retweeted(current_user) %>
+      <%= button_to "Retweet", retweet_path(post.id) %>
     <% end %>
     <!-- Tweet Button Logic, Button and Javascript-->
     <% if post.title %>
@@ -40,7 +45,7 @@
       <% twitter_text = "Check out what I found with Gobblr!"%>
       <% url = post.url %>
     <% end %>
-    <a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= url %>" data-via="<%= author %>" data-text="<%= twitter_text %>" data-dnt="true" data-count="none">Tweet</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= url %>" data-via="<%= author %>" data-text="<%= twitter_text %>" data-dnt="true" data-count="none">Tweet</a><br>
     
   <!-- End Tweet Button Logic, Button and Javascript -->
   </div>
