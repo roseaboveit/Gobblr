@@ -18,7 +18,7 @@
       <%= submit_tag "Go", :name =>'search by name', class: "btn btn-sml" %>
     <% end %>
     <br>
-    <a href="https://twitter.com/share" class="twitter-share-button" data-text=" " data-dnt="true" data-count="none">Tweet</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-text="Hello" data-dnt="true" data-count="none">Tweet</a>
     <br>
     <% @current_user.authorizations.each do |authorizations| %>
       <%= authorizations.provider %><br>

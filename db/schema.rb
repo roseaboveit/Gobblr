@@ -55,11 +55,11 @@ ActiveRecord::Schema.define(version: 20140202202503) do
     t.integer  "feed_id"
     t.string   "content_type"
     t.text     "quote_source"
+    t.string   "aurl"
     t.text     "artist"
     t.text     "track_name"
     t.text     "album_art"
     t.text     "embed"
-    t.string   "aurl"
     t.string   "tweet_id"
   end
 
