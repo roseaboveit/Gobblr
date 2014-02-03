@@ -7,9 +7,9 @@ Gobblr::Application.routes.draw do
   post '/users/:id'               => 'feeds#create', as: :feeds
   get '/logout'                   => 'sessions#destroy', as: :logout
   get 'feeds/twitter_create'      => 'feeds#add_home_twitter_feed', as: :twitter_feed_create
-  post '/posts/:id/favorite' => "posts#fave", as: :favorite
-  post '/posts/:id/unfavorite' => "posts#unfave", as: :unfavorite
-  post '/posts/:id/retweet' => "posts#retweet", as: :retweet
+  post '/posts/:id/favorite'      => "posts#fave", as: :favorite
+  post '/posts/:id/unfavorite'    => "posts#unfave", as: :unfavorite
+  post '/posts/:id/retweet'       => "posts#retweet", as: :retweet
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
