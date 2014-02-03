@@ -4,8 +4,8 @@ Gobblr::Application.routes.draw do
   post '/auth/:provider/callback' => 'sessions#create'
   get '/auth/:provider/callback'  => 'sessions#create' 
   get '/users/:id'                => 'users#show', as: :home
-  get '/logout'                   => 'sessions#destroy', as: :logout
   post '/users/:id'               => 'feeds#create', as: :feeds
+  get '/logout'                   => 'sessions#destroy', as: :logout
   get 'feeds/twitter_create'      => 'feeds#add_home_twitter_feed', as: :twitter_feed_create
   post '/posts/:id/favorite' => "posts#fave", as: :favorite
   post '/posts/:id/unfavorite' => "posts#unfave", as: :unfavorite
@@ -59,10 +59,4 @@ Gobblr::Application.routes.draw do
   #   resources :posts, concerns: :toggleable
   #   resources :photos, concerns: :toggleable
 
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
 end
